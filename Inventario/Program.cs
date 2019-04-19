@@ -14,6 +14,7 @@ namespace Inventario
         [STAThread]
         static void Main()
         {
+            Console.WriteLine("Esta es la linea nueva");
             Console.WriteLine("hola");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
