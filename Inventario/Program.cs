@@ -16,7 +16,6 @@ namespace Inventario
         static void Main()
         {
            
-            //BdContext bd = new BdContext();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

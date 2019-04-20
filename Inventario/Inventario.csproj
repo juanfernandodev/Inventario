@@ -55,7 +55,6 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CajeroController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
-    <Compile Include="Config\Config.cs" />
     <Compile Include="Models\DAO\DAOUsuario.cs" />
     <Compile Include="Models\DAO\DAOProducto.cs" />
     <Compile Include="Models\DTO\DTOUsuario.cs" />
