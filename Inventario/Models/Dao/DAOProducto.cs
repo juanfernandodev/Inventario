@@ -39,12 +39,13 @@ namespace Inventario.Models.DAO
             }
             return database;
         }
-        /* Actualiza la List de los productos con la informacion de la BD*/
-        public List<DTOProducto> actualizarProductos()
+
+        /* Actualiza la List local de los productos con la informacion de la BD*/
+        private List<DTOProducto> actualizarProductosLocalmente()
         {
             this.productos = new List<DTOProducto>();
             this.conexionbd = this.ConectarBD().ConexionBd;
-            declaracion = "Select * FROM Usuario";
+            declaracion = "Select * FROM Producto";
             this.reader = this.database.consultar(declaracion);
             
             while (this.reader.Read())
@@ -54,6 +55,7 @@ namespace Inventario.Models.DAO
 
             return productos;
         }
+
         /* Metodo que busca en la lista de productos si se 
            encuentra un producto con el nombre pasado en parametro */
         public DTOProducto BuscarProductoNombre(string nombre)
@@ -68,21 +70,39 @@ namespace Inventario.Models.DAO
             return null;
         }
         
-        
+        /* Devuelve la lista de productos local */
+        public List<DTOProducto> darProductos()
+        {
+            return productos;
+        }
 
+        /* Crea producto nuevo */
         public void CrearProducto(DTOProducto producto)
         {
-            throw new NotImplementedException();
+            this.conexionbd = this.ConectarBD().ConexionBd;
+            declaracion = "INSERT INTO Producto(num_serie, nombreproducto, proveedor, categoria, preciounidad, cantidadexistente) VALUES" +
+                "("+producto.NumSerie+","+producto.NombreProducto+","+producto.Proveedor+","+producto.Categoria+","+producto.PrecioUnidad+","+producto.CantidadExistente+");";
+            this.database.alterar(declaracion); //Inserta el producto en la BD
+            this.productos.Add(producto); //Crea el producto local
         }
 
+        /* Elimina un producto */
         public void EliminarProducto(int numserie)
         {
-            throw new NotImplementedException();
+            this.conexionbd = this.ConectarBD().ConexionBd;
+            declaracion = "DELETE FROM Producto WHERE num_serie = " + numserie;
+            this.database.alterar(declaracion); //Elimina de la BD
+            this.actualizarProductosLocalmente(); //Actualiza la lista local
         }
 
-        public DTOProducto BuscarProducto(int numSerie)
+        /* Actualizar producto */
+        public void ActualizarProducto(int numeroserie, string nombreproducto, string proveedor, string categoria, int preciounidad, int cantidadexistente)
         {
-            throw new NotImplementedException();
+            this.conexionbd = this.ConectarBD().ConexionBd;
+            declaracion = "UPDATE Producto SET nombreproducto=" + nombreproducto + ", proveedor=" + proveedor + ", categoria=" + categoria + ", " +
+                "preciounidad=" + preciounidad + ", cantidadexistente" + cantidadexistente + ";";
+            this.database.alterar(declaracion); //Actualiza la DB
+            this.actualizarProductosLocalmente(); //Actualiza localmente
         }
     }
 }

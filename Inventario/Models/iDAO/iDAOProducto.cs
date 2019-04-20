@@ -12,7 +12,8 @@ namespace Inventario.Models.iDAO
     {
         BdContext ConectarBD();
         void CrearProducto(DTOProducto producto);
-        DTOProducto BuscarProducto(int numSerie); //hace el select y tambien sirve para el update
+        DTOProducto BuscarProductoNombre(string nombre); //hace el select y tambien sirve para el update
         void EliminarProducto(int numserie);
+        void ActualizarProducto(int numeroserie, string nombreproducto, string proveedor, string categoria, int preciounidad, int cantidadexistente);
     }
 }
