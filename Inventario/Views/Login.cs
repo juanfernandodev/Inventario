@@ -29,7 +29,7 @@ namespace Inventario
 
         private void Button2_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void CheckBox1_CheckedChanged(object sender, EventArgs e)
