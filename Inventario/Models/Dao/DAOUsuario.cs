@@ -52,7 +52,6 @@ namespace Inventario.Models.DAO
                     idUsuario = reader.GetBoolean(0) ? 1 : 0;
                     nombre = reader.GetString(2);
                     apellido = reader.GetString(3);
-                    MessageBox.Show("Bienvenido " + nombre + " " + apellido + " con el ID " + idUsuario);
                     return new DTOUsuario(1, cedula, nombre, apellido, role, password);
                 }
                 

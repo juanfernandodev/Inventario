@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Inventario.Models.DAO;
 using Inventario.Models.DTO;
 using Inventario.Views;
@@ -28,6 +29,7 @@ namespace Inventario.Controllers
             dtoUser = user.BuscarUsuario(cedula, rol, pass);
             valores.Add(dtoUser.Nombre);
             valores.Add(dtoUser.Rol);
+            MessageBox.Show(dtoUser.Nombre);
             return valores;
         }
 

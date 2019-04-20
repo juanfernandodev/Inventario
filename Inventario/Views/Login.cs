@@ -1,4 +1,4 @@
-﻿using Inventario.Facade;
+﻿using Inventario.Controllers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,12 +13,12 @@ namespace Inventario
 {
     public partial class Form1 : Form
     {
-        Facade.Facade facade;
+        Controllers.LoginController controller;
 
         public Form1()
         {
             InitializeComponent();
-            facade = new Facade.Facade();
+            controller = new Controllers.LoginController();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -29,10 +29,9 @@ namespace Inventario
         private void Button1_Click(object sender, EventArgs e)
         {
             if (chkAdministrador.Checked){
-                facade.logear(txtCedula.Text, "Administrador", txtPassword.Text);
-            }
-            else{
-                facade.logear(txtCedula.Text, "Cajero",txtPassword.Text);
+                controller.login(txtCedula.Text, "Administrador", txtPassword.Text);
+            }else{
+                controller.login(txtCedula.Text, "Cajero",txtPassword.Text);
             }
             
            
