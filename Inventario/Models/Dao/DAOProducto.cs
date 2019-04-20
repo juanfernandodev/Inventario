@@ -16,6 +16,7 @@ namespace Inventario.Models.DAO
         private MySqlConnection conexionbd;
         private string declaracion;
         private MySqlDataReader reader;
+        private List<DTOProducto> productos;
 
         public DAOProducto()
         {
@@ -23,6 +24,7 @@ namespace Inventario.Models.DAO
             this.conexionbd = null;
             this.reader = null;
             this.declaracion = "";
+            this.productos = null;
         }
 
 
@@ -37,31 +39,36 @@ namespace Inventario.Models.DAO
             }
             return database;
         }
-
-        public DTOProducto BuscarProducto(int numSerie)
+        /* Actualiza la List de los productos con la informacion de la BD*/
+        public List<DTOProducto> actualizarProductos()
         {
-            try
+            this.productos = new List<DTOProducto>();
+            this.conexionbd = this.ConectarBD().ConexionBd;
+            declaracion = "Select * FROM Usuario";
+            this.reader = this.database.consultar(declaracion);
+            
+            while (this.reader.Read())
             {
-                this.conexionbd = this.ConectarBD().ConexionBd;
-                declaracion = "SELECT * FROM Usuario WHERE cedula = '" + cedula + "' AND rol = '" + role + "' AND password = MD5('" + password + "');";
-                this.reader = this.database.consultar(declaracion);
-                if (this.reader.Read())
+                productos.Add(new DTOProducto(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetInt32(4), reader.GetInt32(5)));
+            }
+
+            return productos;
+        }
+        /* Metodo que busca en la lista de productos si se 
+           encuentra un producto con el nombre pasado en parametro */
+        public DTOProducto BuscarProductoNombre(string nombre)
+        {
+            foreach (DTOProducto producto in productos)
+            {
+                if (producto.NombreProducto.Equals("nombre"))
                 {
-                    idUsuario = reader.GetBoolean(0) ? 1 : 0;
-                    nombre = reader.GetString(2);
-                    apellido = reader.GetString(3);
-                    MessageBox.Show("Bienvenido " + nombre + " " + apellido + " con el ID " + idUsuario);
-                    return new DTOUsuario(1, cedula, nombre, apellido, role, password);
+                    return producto;
                 }
-
             }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-
             return null;
         }
+        
+        
 
         public void CrearProducto(DTOProducto producto)
         {
@@ -69,6 +76,11 @@ namespace Inventario.Models.DAO
         }
 
         public void EliminarProducto(int numserie)
+        {
+            throw new NotImplementedException();
+        }
+
+        public DTOProducto BuscarProducto(int numSerie)
         {
             throw new NotImplementedException();
         }
