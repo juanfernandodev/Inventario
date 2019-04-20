@@ -16,8 +16,8 @@ namespace Inventario
         static void Main()
         {
            
-            BdContext bd = new BdContext();
-            bd.conectarEimprimir();
+            //BdContext bd = new BdContext();
+           
             Console.WriteLine("Esta es la linea nueva");
             Console.WriteLine("hola");
             Application.EnableVisualStyles();

@@ -15,6 +15,10 @@ namespace Inventario.Models.DTO
         private string rol;
         private string password;
 
+        public DTOUsuario()
+        {
+        }
+
         public DTOUsuario(int idUsuario, string cedula, string nombre, string apellido, string rol, string password)
         {
             this.idUsuario = idUsuario;

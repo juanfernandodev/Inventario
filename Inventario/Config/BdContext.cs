@@ -8,56 +8,56 @@ using System.Windows.Forms;
 
 namespace Inventario.Models.Dao
 {
-    class BdContext {
-        private string server;
-        private string database;
-        private string user;
-        private string pass;
-        private string port;
-        private MySqlConnection conexionBd;
+    public class BdContext {
+        private static string server = "arquitecturabd.mysql.database.azure.com";
+        private static string database = "inventario";
+        private static string user = "adminbd@arquitecturabd";
+        private static string pass = "Arquitecturabd2019";
+        private static string port = "3306";
+        private MySqlConnection conexionBd; //realiza la conexion a la BD
+        private MySqlCommand cmd; //Ejecuta las sentencias o declaraciones a la BD
+        private MySqlDataReader reader; //Obtiene los resultados de las declaraciones
+
 
         public BdContext()
         {
-            this.server = "arquitecturabd.mysql.database.azure.com";
-            this.database = "inventario";
-            this.user = "adminbd@arquitecturabd";
-            this.pass = "Arquitecturabd2019";
-            this.port = "3306";
-
+           
+            this.cmd = null;
+            this.reader = null;
+            conectarBD();
         }
 
-        public MySqlConnection Conectar()
+        private void conectarBD()
         {
-
-            string datos = "";
-
-
-            string cadenaConexion = "server=" + this.server + "; port=" + port + "; userid=" + user + "; password=" + pass + "; database=" + database + ";";
+            string cadenaConexion = "server=" + server + "; port=" + port + "; userid=" + user + "; password=" + pass + "; database=" + database + ";";
             conexionBd = new MySqlConnection(cadenaConexion);
-            return conexionBd;
-
+            conexionBd.Open();
         }
+        public MySqlConnection ConexionBd
+        {
+            get
+            {
+                return this.conexionBd;
+
+            }
+        }
+
+        /* Este metodo es para eliminacion, actualizacion, insertar, es decir para ALTERAR una tabla de la BD */
+        public void alterar(string declaracion)
+        {
+            this.cmd = new MySqlCommand(declaracion, this.conexionBd);
+        }
+
+        public MySqlDataReader consultar(string declaracion)
+        {
+            
+            this.cmd = new MySqlCommand(declaracion,this.conexionBd);
+            this.reader = cmd.ExecuteReader();
+            return reader;
+        }
+        
 
     }
 }
 
-/*
-        try {
-                conexionBd.Open();
-                MySqlDataReader reader = null;
-        MySqlCommand cmd = new MySqlCommand("SELECT * FROM Usuario;", conexionBd);
-        reader = cmd.ExecuteReader();
 
-                while (reader.Read())
-                {
-                    datos += reader.GetString(0) + " " + reader.GetString(1);
-                }
-
-}
-            catch (MySqlException ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-
-            MessageBox.Show(datos);
-*/

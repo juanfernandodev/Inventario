@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Inventario.Models.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,7 +25,8 @@ namespace Inventario
 
         private void Button1_Click(object sender, EventArgs e)
         {
-
+            DAOUsuario user = new DAOUsuario();
+            user.BuscarUsuario(txtCedula.Text, "Cajero", txtPassword.Text);
         }
 
         private void Button2_Click(object sender, EventArgs e)
@@ -45,6 +47,11 @@ namespace Inventario
         private void TextBox2_TextChanged(object sender, EventArgs e)
         {
           
+        }
+
+        private void Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

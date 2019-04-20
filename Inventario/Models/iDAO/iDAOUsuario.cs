@@ -1,4 +1,6 @@
-﻿using Inventario.Models.DTO;
+﻿using Inventario.Models.Dao;
+using Inventario.Models.DTO;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,8 +14,8 @@ namespace Inventario.Models.iDAO
     */
     interface iDAOUsuario
     {
-        void CrearUsuario(DTOUsuario usuario);
-        DTOUsuario BuscarUsuario(string cedula); //hace el select y tambien sirve para el update
-        void EliminarUsuario(int idusuario); 
+        BdContext ConectarBD();
+        DTOUsuario BuscarUsuario(string cedula, string rol, string password); //hace el select y tambien sirve para el update
+       
     }
 }
