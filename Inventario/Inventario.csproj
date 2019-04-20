@@ -52,8 +52,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\loginController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Config\Config.cs" />
+    <Compile Include="Facade\Facade.cs" />
     <Compile Include="Models\DAO\DAOUsuario.cs" />
     <Compile Include="Models\DAO\DAOProducto.cs" />
     <Compile Include="Models\DTO\DTOUsuario.cs" />
@@ -109,8 +110,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Facade\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

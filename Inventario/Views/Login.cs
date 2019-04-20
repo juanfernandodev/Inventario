@@ -1,4 +1,4 @@
-﻿using Inventario.Models.DAO;
+﻿using Inventario.Facade;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,9 +13,12 @@ namespace Inventario
 {
     public partial class Form1 : Form
     {
+        Facade.Facade facade;
+
         public Form1()
         {
             InitializeComponent();
+            facade = new Facade.Facade();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -25,8 +28,14 @@ namespace Inventario
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            DAOUsuario user = new DAOUsuario();
-            user.BuscarUsuario(txtCedula.Text, "Cajero", txtPassword.Text);
+            if (chkAdministrador.Checked){
+                facade.logear(txtCedula.Text, txtPassword.Text, "Administrador");
+            }
+            else{
+                facade.logear(txtCedula.Text, txtPassword.Text, "Cajero");
+            }
+            
+           
         }
 
         private void Button2_Click(object sender, EventArgs e)
