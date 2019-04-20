@@ -18,8 +18,8 @@ namespace Inventario.Facade
             valores = new List<string>();
         }
 
-        public List<string> logear(string cedula, string pass, string rol) {
-            valores = loginController.login(cedula, pass, rol);
+        public List<string> logear(string cedula, string rol,string pass) {
+            valores = loginController.login(cedula,rol,pass);
             MessageBox.Show(valores.ElementAt(0)+" "+ valores.ElementAt(1));
             return valores;
         }

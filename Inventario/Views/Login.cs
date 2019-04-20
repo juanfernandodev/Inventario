@@ -29,10 +29,10 @@ namespace Inventario
         private void Button1_Click(object sender, EventArgs e)
         {
             if (chkAdministrador.Checked){
-                facade.logear(txtCedula.Text, txtPassword.Text, "Administrador");
+                facade.logear(txtCedula.Text, "Administrador", txtPassword.Text);
             }
             else{
-                facade.logear(txtCedula.Text, txtPassword.Text, "Cajero");
+                facade.logear(txtCedula.Text, "Cajero",txtPassword.Text);
             }
             
            

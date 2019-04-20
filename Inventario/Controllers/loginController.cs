@@ -20,11 +20,12 @@ namespace Inventario.Controllers
 
         public LoginController(){
             user = new DAOUsuario();
+            dtoUser = new DTOUsuario();
             valores = new List<string>();
         }
 
-        public List<string> login(string cedula,string pass, string rol){
-            dtoUser = user.BuscarUsuario(cedula, pass, rol);
+        public List<string> login(string cedula, string rol, string pass){
+            dtoUser = user.BuscarUsuario(cedula, rol, pass);
             valores.Add(dtoUser.Nombre);
             valores.Add(dtoUser.Rol);
             return valores;
