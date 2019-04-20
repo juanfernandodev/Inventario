@@ -52,11 +52,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <Compile Include="Controllers\loginController.cs" />
-=======
     <Compile Include="Config\Config.cs" />
->>>>>>> a3050b844facf1b0637c42a5fa6daf2917b70718
     <Compile Include="Models\DAO\DAOUsuario.cs" />
     <Compile Include="Models\DAO\DAOProducto.cs" />
     <Compile Include="Models\DTO\DTOUsuario.cs" />
