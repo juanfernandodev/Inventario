@@ -60,4 +60,4 @@ namespace Inventario.Models.Dao
             }
 
             MessageBox.Show(datos);
-/*
+*/
