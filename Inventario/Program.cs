@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Inventario.Models.Dao;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,6 +15,9 @@ namespace Inventario
         [STAThread]
         static void Main()
         {
+           
+            BdContext bd = new BdContext();
+            bd.conectarEimprimir();
             Console.WriteLine("Esta es la linea nueva");
             Console.WriteLine("hola");
             Application.EnableVisualStyles();
