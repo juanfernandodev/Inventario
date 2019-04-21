@@ -31,7 +31,17 @@ namespace Inventario.Views
         }
 
         private void UcViewAdmin_Load(object sender, EventArgs e){
-            dgvProductos.DataSource = main.listarProductos();
+            dgvProductos.DataSource = main.listarProductos(); // Carga los productos al DataGridView una lista de objetos
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e){
+            //dataGridView1.SelectedRows[i].Index.ToString()
+        }
+
+        private void DgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e){
+            if (!(e.RowIndex > -1)){
+                dgvProductos.Rows[dgvProductos.CurrentRow.Index].Cells[e.RowIndex].Value.ToString();  //Me da la fila seleccionada
+            }
         }
 
         private void BtnAgrearProducto_Click(object sender, EventArgs e)

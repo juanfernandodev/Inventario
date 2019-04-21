@@ -17,10 +17,11 @@ namespace Inventario.Controllers
         public AdminController(){
             productos = new List<DTOProducto>();
             daoProducto = new DAOProducto();
+            products = new List<object>();
         }
 
-        public void agregarProducto(){
-
+        public void agregarProducto(string nombre,string proveedor,string categoria,int precioUnidad, int cantidadExistente){
+            daoProducto.CrearProducto(nombre, proveedor, categoria, precioUnidad, cantidadExistente);
         }
 
         public void eliminarProducto(){
@@ -34,6 +35,10 @@ namespace Inventario.Controllers
                 products.Add(pro);
             }
             return products;
+        }
+        public void actualizar()
+        {
+            //para saber cual es la fila que voy a actualizar puedo simplemente consultar con el update
         }
 
         public void buscar(){
