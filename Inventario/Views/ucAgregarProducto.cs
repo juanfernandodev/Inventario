@@ -14,10 +14,13 @@ namespace Inventario.Views
     public partial class ucAgregarProducto : UserControl{
 
         private AdminController adminController;
+        private Form1 main;
 
-        public ucAgregarProducto(){
+        public ucAgregarProducto(Form1 main)
+        {
             adminController = new AdminController();
             InitializeComponent();
+            this.main = main;
         }
 
         private void UcAgregarProducto_Load(object sender, EventArgs e)
