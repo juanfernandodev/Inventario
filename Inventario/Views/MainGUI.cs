@@ -16,13 +16,14 @@ namespace Inventario
     {
         private Controllers.LoginController controller;
         private ucLogin ucLogin;
+        private ucViewAdmin ucViewAdmin;
 
         public Form1()
         {
             InitializeComponent();
             this.ucLogin = new ucLogin(this);
             this.Controls.Add(ucLogin);
-            controller = new Controllers.LoginController();
+            controller = new Controllers.LoginController(this);
 
         }
 
@@ -31,9 +32,18 @@ namespace Inventario
 
         }
 
-        public void logear(string cedula, string rol, string pass)
+        public bool logear(string cedula, string rol, string pass)
         {
-            this.controller.login(cedula, rol, pass);
+            return this.controller.login(cedula, rol, pass);
+
+        }
+
+        public void AbrirVistaAdmin(string rol, string nombre, string apellido)
+        {
+ 
+            this.Controls.Clear();
+            this.ucViewAdmin = new ucViewAdmin(this);
+            this.Controls.Add(this.ucViewAdmin);
         }
 
         private void Button2_Click(object sender, EventArgs e)

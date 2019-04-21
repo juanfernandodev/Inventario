@@ -29,14 +29,16 @@ namespace Inventario.Views
 
         private void BtnIngresar_Click(object sender, EventArgs e)
         {
+           
 
-            if (chkAdministrador.Checked)
+
+            if (chkAdministrador.Checked && this.main.logear(txtCedula.Text, "Administrador", txtPassword.Text))
             {
-               this.main.logear(txtCedula.Text, "Administrador", txtPassword.Text);
+               
             }
-            else
+            else if(chkCajero.Checked && this.main.logear(txtCedula.Text, "Cajero", txtPassword.Text))
             {
-                this.main.logear(txtCedula.Text, "Cajero", txtPassword.Text);
+                
             }
         }
 

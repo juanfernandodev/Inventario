@@ -12,9 +12,12 @@ namespace Inventario.Views
 {
     public partial class ucViewAdmin : UserControl
     {
-        public ucViewAdmin()
+        private Form1 main;
+        public ucViewAdmin(Form1 main)
         {
+            this.main = main;
             InitializeComponent();
+            this.Dock = DockStyle.Fill;
         }
 
         private void Button1_Click(object sender, EventArgs e)
