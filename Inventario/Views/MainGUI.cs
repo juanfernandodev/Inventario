@@ -17,6 +17,8 @@ namespace Inventario
         private Controllers.LoginController controller;
         private ucLogin ucLogin;
         private ucViewAdmin ucViewAdmin;
+        private List<object> productos;
+        private AdminController adminController;
 
         public Form1()
         {
@@ -24,6 +26,7 @@ namespace Inventario
             this.ucLogin = new ucLogin(this);
             this.Controls.Add(ucLogin);
             controller = new Controllers.LoginController(this);
+            adminController = new AdminController();
 
         }
 
@@ -69,6 +72,11 @@ namespace Inventario
         private void Panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        public List<object> listarProductos(){
+            productos = adminController.listarPorducto();
+            return productos;
         }
     }
 }
