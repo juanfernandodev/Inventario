@@ -72,7 +72,7 @@ namespace Inventario.Models.DAO
         /* Devuelve la lista de productos local */
         public List<DTOProducto> darProductos(){
                 this.actualizarProductosLocalmente();
-            return productos;
+                return productos;
         }
 
         /* Crea producto nuevo */

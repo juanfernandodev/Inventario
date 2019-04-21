@@ -17,7 +17,7 @@ namespace Inventario
         private Controllers.LoginController controller;
         private ucLogin ucLogin;
         private ucViewAdmin ucViewAdmin;
-        private List<object> productos;
+        private List<string []> productos;
         private AdminController adminController;
          private ucAgregarProducto ucAgregarProducto;
         private ucEditar ucEditarProducto;
@@ -106,9 +106,11 @@ namespace Inventario
 
         }
 
-        public List<object> listarProductos(){
-            productos = adminController.listarPorducto();
+        public List< string [] > listarProductos(){
+            productos = adminController.ListarProductosTabla();
+
             return productos;
+
         }
     }
 }

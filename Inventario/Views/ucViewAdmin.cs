@@ -17,7 +17,9 @@ namespace Inventario.Views
         {
             this.main = main;
             InitializeComponent();
-           // this.Dock = DockStyle.Fill;
+            
+            
+          
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -31,7 +33,13 @@ namespace Inventario.Views
         }
 
         private void UcViewAdmin_Load(object sender, EventArgs e){
-            dgvProductos.DataSource = main.listarProductos(); // Carga los productos al DataGridView una lista de objetos
+            List<string [] > productos =  main.listarProductos(); // Carga los productos al DataGridView una lista de objetos
+            MessageBox.Show(productos[0][0]);
+            /*foreach(string[] producto in productos)
+            {
+                this.dgvProductos.Rows.Insert(Convert.ToInt32(producto[0]), producto[1], producto[2], producto[3], producto[4], producto[5]);
+            }*/
+            
         }
 
         private void BtnEliminar_Click(object sender, EventArgs e){

@@ -35,6 +35,7 @@ namespace Inventario.Controllers
                 if (rol.Equals("Administrador"))
                 {
                     this.main.AbrirVistaAdmin(dtoUser.Nombre, dtoUser.Apellido);
+
                 }
                 else
                 {

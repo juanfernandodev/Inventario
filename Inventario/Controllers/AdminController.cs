@@ -2,6 +2,7 @@
 using Inventario.Models.DTO;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,12 +10,13 @@ using System.Threading.Tasks;
 namespace Inventario.Controllers
 {
     class AdminController{
-
+        private Form1 main;
         private List<DTOProducto> productos;
         private DAOProducto daoProducto;
         private List<object> products;
 
         public AdminController(){
+            
             productos = new List<DTOProducto>();
             daoProducto = new DAOProducto();
             products = new List<object>();
@@ -28,14 +30,21 @@ namespace Inventario.Controllers
 
         }
 
-        public List<object> listarPorducto(){
+        public List<string []> ListarProductosTabla(){
             productos = daoProducto.darProductos();
-             
-            foreach (object pro in productos){
-
-                products.Add(pro);
+            
+            List<string[]> listaProductos = new List<string[]>();
+            string [] productosVector = new string[6];
+            foreach (DTOProducto producto in productos){
+                productosVector[0] = Convert.ToString(producto.NumSerie);
+                productosVector[1] = producto.NombreProducto;
+                productosVector[2] = producto.Proveedor;
+                productosVector[3] = producto.Categoria;
+                productosVector[4] = Convert.ToString(producto.PrecioUnidad);
+                productosVector[5] = Convert.ToString(producto.CantidadExistente);
+                
             }
-            return products;
+            return listaProductos;
         }
         public void actualizar()
         {
