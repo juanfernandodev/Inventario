@@ -11,9 +11,10 @@ using System.Windows.Forms;
 
 namespace Inventario
 {
-    public partial class Form1 : Form
-    {
+    public partial class Form1 : Form{
         Controllers.LoginController controller;
+        Controllers.AdminController adminController;
+        private List<object> products;
 
         public Form1()
         {
@@ -40,6 +41,11 @@ namespace Inventario
         private void Button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        public List<object> listaProductos(){
+            products = adminController.listarPorducto();
+            return products;
         }
 
         private void CheckBox1_CheckedChanged(object sender, EventArgs e)

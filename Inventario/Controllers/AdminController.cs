@@ -12,6 +12,7 @@ namespace Inventario.Controllers
 
         private List<DTOProducto> productos;
         private DAOProducto daoProducto;
+        private List<object> products;
 
         public AdminController(){
             productos = new List<DTOProducto>();
@@ -26,9 +27,12 @@ namespace Inventario.Controllers
 
         }
 
-        public List<DTOProducto> listarPorducto(){
+        public List<object> listarPorducto(){
             productos = daoProducto.darProductos();
-            return productos;
+            foreach (object pro in productos){
+                products.Add(pro);
+            }
+            return products;
         }
 
         public void buscar(){
