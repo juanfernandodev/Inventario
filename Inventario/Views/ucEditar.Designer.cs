@@ -49,7 +49,7 @@
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 25;
-            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.Text = "Volver";
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
             // cmbCategoria
@@ -139,7 +139,7 @@
             this.btnAgregarProducto.Name = "btnAgregarProducto";
             this.btnAgregarProducto.Size = new System.Drawing.Size(75, 23);
             this.btnAgregarProducto.TabIndex = 14;
-            this.btnAgregarProducto.Text = "Agregar";
+            this.btnAgregarProducto.Text = "Editar";
             this.btnAgregarProducto.UseVisualStyleBackColor = true;
             // 
             // lblTitulo

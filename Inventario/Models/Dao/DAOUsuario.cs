@@ -32,7 +32,7 @@ namespace Inventario.Models.DAO
         {
          if(database == null)
             {
-               return new BdContext(); 
+               this.database =  new BdContext(); 
             }
             
             return database;
@@ -44,7 +44,7 @@ namespace Inventario.Models.DAO
            string nombre = "", apellido = "";
 
             try {
-                this.database = this.ConectarBD();
+                this.ConectarBD();
                 declaracion = "SELECT * FROM Usuario WHERE cedula = '" + cedula + "' AND rol = '" + role + "' AND password = MD5('" + password + "');";
                 this.reader = this.database.consultar(declaracion);
             

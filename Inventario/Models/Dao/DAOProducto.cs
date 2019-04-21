@@ -21,22 +21,23 @@ namespace Inventario.Models.DAO
         public DAOProducto()
         {
             this.database = null;
-            this.conexionbd = null;
+          
             this.reader = null;
             this.declaracion = "";
-            this.productos = null;
+         
         }
 
 
         /* Metodos implementados de iDAOProducto */
-        
+
         /* Patron de diseño SINGLETON */
         public BdContext ConectarBD()
         {
             if (database == null)
             {
-                database = new BdContext();
+                this.database = new BdContext();
             }
+
             return database;
         }
 
@@ -44,7 +45,7 @@ namespace Inventario.Models.DAO
         private List<DTOProducto> actualizarProductosLocalmente()
         {
             this.productos = new List<DTOProducto>();
-            this.conexionbd = this.ConectarBD().ConexionBd;
+            this.ConectarBD();
             declaracion = "Select * FROM producto";
             this.reader = this.database.consultar(declaracion);
             
@@ -52,7 +53,7 @@ namespace Inventario.Models.DAO
             {
                 productos.Add(new DTOProducto(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetInt32(4), reader.GetInt32(5)));
             }
-
+            this.database.CerrarConexion();
             return productos;
         }
 
@@ -76,10 +77,11 @@ namespace Inventario.Models.DAO
 
         /* Crea producto nuevo */
         public void CrearProducto(string nombreProducto, string proveedor, string categoria, int precioUnidad, int cantidadExistente){
-            this.conexionbd = this.ConectarBD().ConexionBd;
+            this.ConectarBD();
             declaracion = "INSERT INTO Producto(num_serie, nombreproducto, proveedor, categoria, preciounidad, cantidadexistente) VALUES" +
                 "("+nombreProducto+","+proveedor+","+categoria+","+precioUnidad+","+cantidadExistente+");";
             this.database.alterar(declaracion); //Inserta el producto en la BD
+            this.database.CerrarConexion();
             this.productos.Add(this.BuscarProductoNombre(nombreProducto)); //Crea el producto local
         }
 
@@ -95,10 +97,11 @@ namespace Inventario.Models.DAO
         /* Actualizar producto */
         public void ActualizarProducto(int numeroserie, string nombreproducto, string proveedor, string categoria, int preciounidad, int cantidadexistente)
         {
-            this.conexionbd = this.ConectarBD().ConexionBd;
+            this.ConectarBD();
             declaracion = "UPDATE Producto SET nombreproducto=" + nombreproducto + ", proveedor=" + proveedor + ", categoria=" + categoria + ", " +
                 "preciounidad=" + preciounidad + ", cantidadexistente" + cantidadexistente + ";";
             this.database.alterar(declaracion); //Actualiza la DB
+            this.database.CerrarConexion();
             this.actualizarProductosLocalmente(); //Actualiza localmente
         }
     }
