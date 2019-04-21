@@ -170,6 +170,7 @@
             this.Controls.Add(this.lblTitulo);
             this.Name = "ucAgregarProducto";
             this.Size = new System.Drawing.Size(327, 377);
+            this.Load += new System.EventHandler(this.UcAgregarProducto_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

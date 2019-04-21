@@ -84,6 +84,7 @@ namespace Inventario.Models.DAO
                 "("+producto.NumSerie+","+producto.NombreProducto+","+producto.Proveedor+","+producto.Categoria+","+producto.PrecioUnidad+","+producto.CantidadExistente+");";
             this.database.alterar(declaracion); //Inserta el producto en la BD
             this.productos.Add(producto); //Crea el producto local
+            this.conexionbd.Close();
         }
 
         /* Elimina un producto */

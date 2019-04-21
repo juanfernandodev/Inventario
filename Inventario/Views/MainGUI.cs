@@ -17,6 +17,7 @@ namespace Inventario
         private Controllers.LoginController controller;
         private ucLogin ucLogin;
         private ucViewAdmin ucViewAdmin;
+        private ucAgregarProducto ucAgregarProducto;
 
         public Form1()
         {
@@ -44,6 +45,13 @@ namespace Inventario
             this.Controls.Clear();
             this.ucViewAdmin = new ucViewAdmin(this);
             this.Controls.Add(this.ucViewAdmin);
+        }
+
+        public void AbrirVistaAgregarProducto()
+        {
+            this.Controls.Clear();
+            this.ucAgregarProducto = new ucAgregarProducto(this);
+            this.Controls.Add(this.ucAgregarProducto);
         }
 
         private void Button2_Click(object sender, EventArgs e)

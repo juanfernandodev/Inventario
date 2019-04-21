@@ -17,7 +17,7 @@ namespace Inventario.Views
         {
             this.main = main;
             InitializeComponent();
-            this.Dock = DockStyle.Fill;
+           // this.Dock = DockStyle.Fill;
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -32,6 +32,12 @@ namespace Inventario.Views
 
         private void UcViewAdmin_Load(object sender, EventArgs e){
            // dgvProductos.DataSource 
+        }
+
+        private void BtnAgrearProducto_Click(object sender, EventArgs e)
+        {
+            this.main.Controls.Clear();
+            this.main.AbrirVistaAgregarProducto();
         }
     }
 }

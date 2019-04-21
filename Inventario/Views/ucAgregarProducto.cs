@@ -12,9 +12,16 @@ namespace Inventario.Views
 {
     public partial class ucAgregarProducto : UserControl
     {
-        public ucAgregarProducto()
+        private Form1 main;
+        public ucAgregarProducto(Form1 main)
         {
             InitializeComponent();
+            this.main = main;
+        }
+
+        private void UcAgregarProducto_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

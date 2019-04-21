@@ -21,18 +21,17 @@ namespace Inventario.Models.Dao
 
         public BdContext()
         {
-           
-            this.cmd = null;
-            this.reader = null;
             conectarBD();
         }
 
         private void conectarBD()
         {
             string cadenaConexion = "server=" + server + "; port=" + port + "; userid=" + user + "; password=" + pass + "; database=" + database + ";";
-            conexionBd = new MySqlConnection(cadenaConexion);
-            conexionBd.Open();
+            this.conexionBd = new MySqlConnection(cadenaConexion);
+          
         }
+
+      
         public MySqlConnection ConexionBd
         {
             get
@@ -45,15 +44,22 @@ namespace Inventario.Models.Dao
         /* Este metodo es para eliminacion, actualizacion, insertar, es decir para ALTERAR una tabla de la BD */
         public void alterar(string declaracion)
         {
-            this.cmd = new MySqlCommand(declaracion, this.conexionBd);
+            conexionBd.Open();
+            this.cmd = new MySqlCommand(declaracion, conexionBd);
+            conexionBd.Close();
         }
 
         public MySqlDataReader consultar(string declaracion)
         {
-            
+            this.conexionBd.Open();
             this.cmd = new MySqlCommand(declaracion,this.conexionBd);
             this.reader = cmd.ExecuteReader();
             return reader;
+        }
+
+        public void CerrarConexion()
+        {
+            this.conexionBd.Close();
         }
         
 
