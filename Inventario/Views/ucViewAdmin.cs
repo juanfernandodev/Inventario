@@ -27,9 +27,8 @@ namespace Inventario.Views
 
         }
 
-        private void UcViewAdmin_Load(object sender, EventArgs e)
-        {
-
+        private void UcViewAdmin_Load(object sender, EventArgs e){
+           // dgvProductos.DataSource 
         }
     }
 }
