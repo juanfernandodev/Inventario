@@ -29,17 +29,14 @@ namespace Inventario.Views
 
         private void BtnIngresar_Click(object sender, EventArgs e)
         {
-           
+         
 
 
-            if (chkAdministrador.Checked && this.main.logear(txtCedula.Text, "Administrador", txtPassword.Text))
-            {
-               
+            if (((chkAdministrador.Checked && this.main.logear(txtCedula.Text, "Administrador", txtPassword.Text)) ||
+                (chkCajero.Checked && this.main.logear(txtCedula.Text, "Cajero", txtPassword.Text)))){
+                return;
             }
-            else if(chkCajero.Checked && this.main.logear(txtCedula.Text, "Cajero", txtPassword.Text))
-            {
-                
-            }
+            MessageBox.Show("Credenciales Incorrectas. Vuelva a pronto :D");
         }
 
         private void Panel1_Paint(object sender, PaintEventArgs e)
