@@ -32,11 +32,8 @@ namespace Inventario.Controllers
 
             if(dtoUser != null)
             {
-               
-                
                 this.main.AbrirVistaAdmin(rol, dtoUser.Nombre, dtoUser.Apellido);
-                
-
+                return true;
             }
 
             return false;

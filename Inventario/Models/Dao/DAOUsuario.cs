@@ -57,10 +57,7 @@ namespace Inventario.Models.DAO
                         return new DTOUsuario(idUsuario, cedula, nombre, apellido, role, password);
                     }
                 }
-                else
-                {
-                    return null;
-                }
+                
                 
                 
             }catch (MySqlException ex){

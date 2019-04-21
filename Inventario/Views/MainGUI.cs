@@ -40,7 +40,7 @@ namespace Inventario
 
         public void AbrirVistaAdmin(string rol, string nombre, string apellido)
         {
- 
+            
             this.Controls.Clear();
             this.ucViewAdmin = new ucViewAdmin(this);
             this.Controls.Add(this.ucViewAdmin);
