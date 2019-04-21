@@ -14,14 +14,13 @@ namespace Inventario.Models.DAO
     class DAOUsuario : iDAOUsuario
     {
         private BdContext database;
-        private MySqlConnection conexionbd;
         private string declaracion;
         private MySqlDataReader reader;
 
         public DAOUsuario()
         {
             this.database = null;
-            this.conexionbd = null;
+          
             this.reader = null;
             this.declaracion = "";
         }
@@ -33,8 +32,9 @@ namespace Inventario.Models.DAO
         {
          if(database == null)
             {
-               database = new BdContext(); 
+               return new BdContext(); 
             }
+            
             return database;
         }
         
@@ -44,9 +44,10 @@ namespace Inventario.Models.DAO
            string nombre = "", apellido = "";
 
             try {
-                this.conexionbd = this.ConectarBD().ConexionBd;
+                this.database = this.ConectarBD();
                 declaracion = "SELECT * FROM Usuario WHERE cedula = '" + cedula + "' AND rol = '" + role + "' AND password = MD5('" + password + "');";
-                this. reader = this.database.consultar(declaracion);
+                this.reader = this.database.consultar(declaracion);
+            
                 if (this.reader.HasRows)
                 {
                     if (this.reader.Read())
@@ -54,8 +55,11 @@ namespace Inventario.Models.DAO
                         idUsuario = reader.GetBoolean(0) ? 1 : 0;
                         nombre = reader.GetString(2);
                         apellido = reader.GetString(3);
+                        
+                        this.database.CerrarConexion();
                         return new DTOUsuario(idUsuario, cedula, nombre, apellido, role, password);
                     }
+
                 }
                 
                 

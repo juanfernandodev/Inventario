@@ -75,7 +75,6 @@
             this.dgvProductos.ReadOnly = true;
             this.dgvProductos.Size = new System.Drawing.Size(643, 173);
             this.dgvProductos.TabIndex = 3;
-            this.dgvProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvProductos_CellContentClick);
             // 
             // Numero_Serie
             // 
@@ -121,6 +120,7 @@
             this.btnAgrearProducto.TabIndex = 4;
             this.btnAgrearProducto.Text = "Agregar Producto";
             this.btnAgrearProducto.UseVisualStyleBackColor = true;
+            this.btnAgrearProducto.Click += new System.EventHandler(this.BtnAgrearProducto_Click);
             // 
             // label1
             // 
@@ -140,12 +140,12 @@
             this.btnEliminar.TabIndex = 6;
             this.btnEliminar.Text = "Eliminar Producto";
             this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // ucViewAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAgrearProducto);
@@ -153,7 +153,7 @@
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtBusqueda);
             this.Name = "ucViewAdmin";
-            this.Size = new System.Drawing.Size(670, 397);
+            this.Size = new System.Drawing.Size(670, 338);
             this.Load += new System.EventHandler(this.UcViewAdmin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             this.ResumeLayout(false);

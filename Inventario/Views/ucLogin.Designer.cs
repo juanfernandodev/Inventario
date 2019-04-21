@@ -39,7 +39,6 @@ namespace Inventario.Views
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.chkAdministrador = new System.Windows.Forms.CheckBox();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.chkCajero = new System.Windows.Forms.CheckBox();
             this.btnIngresar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -53,11 +52,10 @@ namespace Inventario.Views
             this.panel1.Controls.Add(this.txtPassword);
             this.panel1.Controls.Add(this.chkAdministrador);
             this.panel1.Controls.Add(this.btnSalir);
-            this.panel1.Controls.Add(this.chkCajero);
             this.panel1.Controls.Add(this.btnIngresar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(382, 256);
             this.panel1.TabIndex = 5;
@@ -90,7 +88,7 @@ namespace Inventario.Views
             // txtCedula
             // 
             this.txtCedula.Location = new System.Drawing.Point(230, 40);
-            this.txtCedula.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCedula.Margin = new System.Windows.Forms.Padding(2);
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(76, 20);
             this.txtCedula.TabIndex = 5;
@@ -99,7 +97,7 @@ namespace Inventario.Views
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(230, 63);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '°';
             this.txtPassword.Size = new System.Drawing.Size(76, 20);
@@ -109,19 +107,19 @@ namespace Inventario.Views
             // chkAdministrador
             // 
             this.chkAdministrador.AutoSize = true;
-            this.chkAdministrador.Location = new System.Drawing.Point(139, 99);
-            this.chkAdministrador.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkAdministrador.Location = new System.Drawing.Point(170, 102);
+            this.chkAdministrador.Margin = new System.Windows.Forms.Padding(2);
             this.chkAdministrador.Name = "chkAdministrador";
-            this.chkAdministrador.Size = new System.Drawing.Size(89, 17);
+            this.chkAdministrador.Size = new System.Drawing.Size(101, 17);
             this.chkAdministrador.TabIndex = 3;
-            this.chkAdministrador.Text = "Administrador";
+            this.chkAdministrador.Text = "¿Administrador?";
             this.chkAdministrador.UseVisualStyleBackColor = true;
             this.chkAdministrador.CheckedChanged += new System.EventHandler(this.ChkAdministrador_CheckedChanged);
             // 
             // btnSalir
             // 
             this.btnSalir.Location = new System.Drawing.Point(190, 171);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(2);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(56, 19);
             this.btnSalir.TabIndex = 1;
@@ -129,22 +127,10 @@ namespace Inventario.Views
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
             // 
-            // chkCajero
-            // 
-            this.chkCajero.AutoSize = true;
-            this.chkCajero.Location = new System.Drawing.Point(252, 99);
-            this.chkCajero.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.chkCajero.Name = "chkCajero";
-            this.chkCajero.Size = new System.Drawing.Size(56, 17);
-            this.chkCajero.TabIndex = 2;
-            this.chkCajero.Text = "Cajero";
-            this.chkCajero.UseVisualStyleBackColor = true;
-            this.chkCajero.CheckedChanged += new System.EventHandler(this.ChkCajero_CheckedChanged);
-            // 
             // btnIngresar
             // 
             this.btnIngresar.Location = new System.Drawing.Point(190, 134);
-            this.btnIngresar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnIngresar.Margin = new System.Windows.Forms.Padding(2);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(56, 22);
             this.btnIngresar.TabIndex = 0;
@@ -157,7 +143,7 @@ namespace Inventario.Views
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ucLogin";
             this.Size = new System.Drawing.Size(382, 256);
             this.Load += new System.EventHandler(this.UserControl1_Load);
@@ -176,7 +162,6 @@ namespace Inventario.Views
         public TextBox txtPassword;
         public CheckBox chkAdministrador;
         public Button btnSalir;
-        public CheckBox chkCajero;
         public Button btnIngresar;
     }
 }

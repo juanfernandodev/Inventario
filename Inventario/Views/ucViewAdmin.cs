@@ -17,7 +17,7 @@ namespace Inventario.Views
         {
             this.main = main;
             InitializeComponent();
-            this.Dock = DockStyle.Fill;
+           // this.Dock = DockStyle.Fill;
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -42,6 +42,12 @@ namespace Inventario.Views
             if (!(e.RowIndex > -1)){
                 dgvProductos.Rows[dgvProductos.CurrentRow.Index].Cells[e.RowIndex].Value.ToString();  //Me da la fila seleccionada
             }
+        }
+
+        private void BtnAgrearProducto_Click(object sender, EventArgs e)
+        {
+            this.main.Controls.Clear();
+            this.main.AbrirVistaAgregarProducto();
         }
     }
 }
