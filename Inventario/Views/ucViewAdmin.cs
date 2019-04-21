@@ -46,8 +46,19 @@ namespace Inventario.Views
 
         private void BtnAgrearProducto_Click(object sender, EventArgs e)
         {
-            this.main.Controls.Clear();
+          
             this.main.AbrirVistaAgregarProducto();
+        }
+
+        private void Button1_Click_1(object sender, EventArgs e)
+        {
+       
+            this.main.AbrirVistaEditarProducto();
+        }
+
+        private void DgvProductos_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

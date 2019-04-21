@@ -45,45 +45,47 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(109, 303);
+            this.btnCancelar.Location = new System.Drawing.Point(84, 303);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 25;
             this.btnCancelar.Text = "Volver";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // cmbCategoria
             // 
             this.cmbCategoria.FormattingEnabled = true;
-            this.cmbCategoria.Location = new System.Drawing.Point(221, 149);
+            this.cmbCategoria.Location = new System.Drawing.Point(178, 149);
             this.cmbCategoria.Name = "cmbCategoria";
             this.cmbCategoria.Size = new System.Drawing.Size(100, 21);
             this.cmbCategoria.TabIndex = 24;
+            this.cmbCategoria.SelectedIndexChanged += new System.EventHandler(this.CmbCategoria_SelectedIndexChanged);
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(221, 193);
+            this.txtPrecio.Location = new System.Drawing.Point(178, 196);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(100, 20);
             this.txtPrecio.TabIndex = 23;
             // 
             // txtExistencia
             // 
-            this.txtExistencia.Location = new System.Drawing.Point(221, 237);
+            this.txtExistencia.Location = new System.Drawing.Point(178, 237);
             this.txtExistencia.Name = "txtExistencia";
             this.txtExistencia.Size = new System.Drawing.Size(100, 20);
             this.txtExistencia.TabIndex = 22;
             // 
             // txtProveedor
             // 
-            this.txtProveedor.Location = new System.Drawing.Point(221, 107);
+            this.txtProveedor.Location = new System.Drawing.Point(178, 107);
             this.txtProveedor.Name = "txtProveedor";
             this.txtProveedor.Size = new System.Drawing.Size(100, 20);
             this.txtProveedor.TabIndex = 21;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(221, 65);
+            this.txtNombre.Location = new System.Drawing.Point(178, 68);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(100, 20);
             this.txtNombre.TabIndex = 20;
@@ -91,7 +93,7 @@
             // lblCantidadExis
             // 
             this.lblCantidadExis.AutoSize = true;
-            this.lblCantidadExis.Location = new System.Drawing.Point(83, 244);
+            this.lblCantidadExis.Location = new System.Drawing.Point(32, 240);
             this.lblCantidadExis.Name = "lblCantidadExis";
             this.lblCantidadExis.Size = new System.Drawing.Size(115, 13);
             this.lblCantidadExis.TabIndex = 19;
@@ -100,7 +102,7 @@
             // lblPrecio
             // 
             this.lblPrecio.AutoSize = true;
-            this.lblPrecio.Location = new System.Drawing.Point(92, 200);
+            this.lblPrecio.Location = new System.Drawing.Point(32, 196);
             this.lblPrecio.Name = "lblPrecio";
             this.lblPrecio.Size = new System.Drawing.Size(92, 13);
             this.lblPrecio.TabIndex = 18;
@@ -109,7 +111,7 @@
             // lblCategoria
             // 
             this.lblCategoria.AutoSize = true;
-            this.lblCategoria.Location = new System.Drawing.Point(114, 152);
+            this.lblCategoria.Location = new System.Drawing.Point(32, 152);
             this.lblCategoria.Name = "lblCategoria";
             this.lblCategoria.Size = new System.Drawing.Size(52, 13);
             this.lblCategoria.TabIndex = 17;
@@ -118,7 +120,7 @@
             // lblProveedor
             // 
             this.lblProveedor.AutoSize = true;
-            this.lblProveedor.Location = new System.Drawing.Point(114, 107);
+            this.lblProveedor.Location = new System.Drawing.Point(32, 107);
             this.lblProveedor.Name = "lblProveedor";
             this.lblProveedor.Size = new System.Drawing.Size(56, 13);
             this.lblProveedor.TabIndex = 16;
@@ -127,7 +129,7 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(92, 68);
+            this.lblNombre.Location = new System.Drawing.Point(32, 68);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(106, 13);
             this.lblNombre.TabIndex = 15;
@@ -135,7 +137,7 @@
             // 
             // btnAgregarProducto
             // 
-            this.btnAgregarProducto.Location = new System.Drawing.Point(246, 303);
+            this.btnAgregarProducto.Location = new System.Drawing.Point(178, 303);
             this.btnAgregarProducto.Name = "btnAgregarProducto";
             this.btnAgregarProducto.Size = new System.Drawing.Size(75, 23);
             this.btnAgregarProducto.TabIndex = 14;
@@ -145,7 +147,7 @@
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Location = new System.Drawing.Point(158, 22);
+            this.lblTitulo.Location = new System.Drawing.Point(117, 30);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(80, 13);
             this.lblTitulo.TabIndex = 13;
@@ -170,7 +172,8 @@
             this.Controls.Add(this.btnAgregarProducto);
             this.Controls.Add(this.lblTitulo);
             this.Name = "ucEditar";
-            this.Size = new System.Drawing.Size(419, 383);
+            this.Size = new System.Drawing.Size(303, 362);
+            this.Load += new System.EventHandler(this.UcEditar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -180,6 +183,7 @@
 
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.ComboBox cmbCategoria;
+
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.TextBox txtExistencia;
         private System.Windows.Forms.TextBox txtProveedor;

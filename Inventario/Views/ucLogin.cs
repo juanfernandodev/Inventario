@@ -85,5 +85,10 @@ namespace Inventario.Views
         {
 
         }
+
+        private void Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

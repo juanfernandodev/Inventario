@@ -20,6 +20,8 @@ namespace Inventario
         private List<object> productos;
         private AdminController adminController;
          private ucAgregarProducto ucAgregarProducto;
+        private ucEditar ucEditarProducto;
+
         public Form1()
         {
             InitializeComponent();
@@ -41,11 +43,28 @@ namespace Inventario
 
         }
 
-        public void AbrirVistaAdmin(string rol, string nombre, string apellido)
+        internal void VolverToInventario()
+        {
+            this.Controls.Clear();
+            this.Controls.Add(this.ucViewAdmin);
+        }
+
+        public void AbrirVistaAdmin(string nombre, string apellido)
         {
             
             this.Controls.Clear();
             this.ucViewAdmin = new ucViewAdmin(this);
+            this.Controls.Add(this.ucViewAdmin);
+            
+        }
+
+        public void AbrirVistaCajero(string nombre, string apellido)
+        {
+            this.Controls.Clear();
+            this.ucViewAdmin = new ucViewAdmin(this);
+            this.ucViewAdmin.BtnAgrearProducto.Hide();
+            this.ucViewAdmin.BtnEditarProducto.Hide();
+            this.ucViewAdmin.BtnEliminar.Hide();
             this.Controls.Add(this.ucViewAdmin);
         }
 
@@ -58,6 +77,13 @@ namespace Inventario
         private void Button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        internal void AbrirVistaEditarProducto()
+        {
+            this.Controls.Clear();
+            this.ucEditarProducto = new ucEditar(this);
+            this.Controls.Add(this.ucEditarProducto);
         }
 
         private void CheckBox1_CheckedChanged(object sender, EventArgs e)

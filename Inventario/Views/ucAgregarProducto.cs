@@ -20,6 +20,14 @@ namespace Inventario.Views
         {
             adminController = new AdminController();
             InitializeComponent();
+            this.cmbCategoria.Items.Add("Bebidas");
+            this.cmbCategoria.Items.Add("Carnes");
+            this.cmbCategoria.Items.Add("Frutas");
+            this.cmbCategoria.Items.Add("Granos");
+            this.cmbCategoria.Items.Add("Lacteos");
+            this.cmbCategoria.Items.Add("Verduras");
+            this.cmbCategoria.Items.Add("Ropa");
+            this.cmbCategoria.Items.Add("Otros");
             this.main = main;
         }
 
@@ -34,7 +42,7 @@ namespace Inventario.Views
 
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
-            //enviar la vista a la lista de productos
+            this.main.VolverToInventario();
         }
     }
 }

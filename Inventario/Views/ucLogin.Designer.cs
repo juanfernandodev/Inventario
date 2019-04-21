@@ -32,32 +32,41 @@ namespace Inventario.Views
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucLogin));
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblPass = new System.Windows.Forms.Label();
             this.lblCedula = new System.Windows.Forms.Label();
             this.txtCedula = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.chkAdministrador = new System.Windows.Forms.CheckBox();
-            this.btnSalir = new System.Windows.Forms.Button();
             this.btnIngresar = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.IndianRed;
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.lblPass);
             this.panel1.Controls.Add(this.lblCedula);
             this.panel1.Controls.Add(this.txtCedula);
             this.panel1.Controls.Add(this.txtPassword);
             this.panel1.Controls.Add(this.chkAdministrador);
-            this.panel1.Controls.Add(this.btnSalir);
             this.panel1.Controls.Add(this.btnIngresar);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Location = new System.Drawing.Point(2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(382, 256);
+            this.panel1.Size = new System.Drawing.Size(649, 301);
             this.panel1.TabIndex = 5;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel1_Paint);
             // 
@@ -65,29 +74,29 @@ namespace Inventario.Views
             // 
             this.lblPass.AutoSize = true;
             this.lblPass.BackColor = System.Drawing.Color.Transparent;
-            this.lblPass.Location = new System.Drawing.Point(137, 67);
+            this.lblPass.Location = new System.Drawing.Point(177, 267);
             this.lblPass.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPass.Name = "lblPass";
-            this.lblPass.Size = new System.Drawing.Size(53, 13);
+            this.lblPass.Size = new System.Drawing.Size(56, 13);
             this.lblPass.TabIndex = 7;
-            this.lblPass.Text = "Password";
+            this.lblPass.Text = "Password:";
             this.lblPass.Click += new System.EventHandler(this.LblPass_Click);
             // 
             // lblCedula
             // 
             this.lblCedula.AutoSize = true;
             this.lblCedula.BackColor = System.Drawing.Color.Transparent;
-            this.lblCedula.Location = new System.Drawing.Point(137, 40);
+            this.lblCedula.Location = new System.Drawing.Point(40, 269);
             this.lblCedula.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCedula.Name = "lblCedula";
-            this.lblCedula.Size = new System.Drawing.Size(40, 13);
+            this.lblCedula.Size = new System.Drawing.Size(43, 13);
             this.lblCedula.TabIndex = 6;
-            this.lblCedula.Text = "Cedula";
+            this.lblCedula.Text = "Cedula:";
             this.lblCedula.Click += new System.EventHandler(this.LblCedula_Click);
             // 
             // txtCedula
             // 
-            this.txtCedula.Location = new System.Drawing.Point(230, 40);
+            this.txtCedula.Location = new System.Drawing.Point(87, 263);
             this.txtCedula.Margin = new System.Windows.Forms.Padding(2);
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(76, 20);
@@ -96,7 +105,7 @@ namespace Inventario.Views
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(230, 63);
+            this.txtPassword.Location = new System.Drawing.Point(234, 262);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '°';
@@ -107,7 +116,7 @@ namespace Inventario.Views
             // chkAdministrador
             // 
             this.chkAdministrador.AutoSize = true;
-            this.chkAdministrador.Location = new System.Drawing.Point(170, 102);
+            this.chkAdministrador.Location = new System.Drawing.Point(328, 265);
             this.chkAdministrador.Margin = new System.Windows.Forms.Padding(2);
             this.chkAdministrador.Name = "chkAdministrador";
             this.chkAdministrador.Size = new System.Drawing.Size(101, 17);
@@ -116,20 +125,9 @@ namespace Inventario.Views
             this.chkAdministrador.UseVisualStyleBackColor = true;
             this.chkAdministrador.CheckedChanged += new System.EventHandler(this.ChkAdministrador_CheckedChanged);
             // 
-            // btnSalir
-            // 
-            this.btnSalir.Location = new System.Drawing.Point(190, 171);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(2);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(56, 19);
-            this.btnSalir.TabIndex = 1;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
-            // 
             // btnIngresar
             // 
-            this.btnIngresar.Location = new System.Drawing.Point(190, 134);
+            this.btnIngresar.Location = new System.Drawing.Point(449, 261);
             this.btnIngresar.Margin = new System.Windows.Forms.Padding(2);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(56, 22);
@@ -138,6 +136,50 @@ namespace Inventario.Views
             this.btnIngresar.UseVisualStyleBackColor = true;
             this.btnIngresar.Click += new System.EventHandler(this.BtnIngresar_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(50, 44);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(137, 116);
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(252, 93);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(325, 28);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Sistema Inventario - DreamSI";
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(649, 207);
+            this.panel2.TabIndex = 10;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel2_Paint);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(43, 231);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(168, 13);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "INICIA SESION EN EL SISTEMA:";
+            // 
             // ucLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -145,10 +187,13 @@ namespace Inventario.Views
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ucLogin";
-            this.Size = new System.Drawing.Size(382, 256);
+            this.Size = new System.Drawing.Size(653, 303);
             this.Load += new System.EventHandler(this.UserControl1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -161,7 +206,10 @@ namespace Inventario.Views
         public TextBox txtCedula;
         public TextBox txtPassword;
         public CheckBox chkAdministrador;
-        public Button btnSalir;
         public Button btnIngresar;
+        private PictureBox pictureBox1;
+        private Label label1;
+        private Panel panel2;
+        private Label label2;
     }
 }
