@@ -58,11 +58,9 @@ namespace Inventario.Models.DAO
 
         /* Metodo que busca en la lista de productos si se 
            encuentra un producto con el nombre pasado en parametro */
-        public DTOProducto BuscarProductoNombre(string nombre)
-        {
-            foreach (DTOProducto producto in productos)
-            {
-                if (producto.NombreProducto.Equals("nombre"))
+        public DTOProducto BuscarProductoNombre(string nombre){
+            foreach (DTOProducto producto in productos){
+                if (producto.NombreProducto.Equals(nombre))
                 {
                     return producto;
                 }
@@ -77,13 +75,12 @@ namespace Inventario.Models.DAO
         }
 
         /* Crea producto nuevo */
-        public void CrearProducto(DTOProducto producto)
-        {
+        public void CrearProducto(string nombreProducto, string proveedor, string categoria, int precioUnidad, int cantidadExistente){
             this.conexionbd = this.ConectarBD().ConexionBd;
             declaracion = "INSERT INTO Producto(num_serie, nombreproducto, proveedor, categoria, preciounidad, cantidadexistente) VALUES" +
-                "("+producto.NumSerie+","+producto.NombreProducto+","+producto.Proveedor+","+producto.Categoria+","+producto.PrecioUnidad+","+producto.CantidadExistente+");";
+                "("+nombreProducto+","+proveedor+","+categoria+","+precioUnidad+","+cantidadExistente+");";
             this.database.alterar(declaracion); //Inserta el producto en la BD
-            this.productos.Add(producto); //Crea el producto local
+            this.productos.Add(this.BuscarProductoNombre(nombreProducto)); //Crea el producto local
         }
 
         /* Elimina un producto */

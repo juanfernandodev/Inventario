@@ -60,6 +60,7 @@
             this.btnAgregarProducto.TabIndex = 1;
             this.btnAgregarProducto.Text = "Agregar";
             this.btnAgregarProducto.UseVisualStyleBackColor = true;
+            this.btnAgregarProducto.Click += new System.EventHandler(this.BtnAgregarProducto_Click);
             // 
             // lblNombre
             // 
@@ -137,6 +138,14 @@
             // cmbCategoria
             // 
             this.cmbCategoria.FormattingEnabled = true;
+            this.cmbCategoria.Items.AddRange(new object[] {
+            "Bebidas",
+            "Carnes",
+            "Frutas",
+            "Lacteos",
+            "Ropa",
+            "Granos",
+            "Otros"});
             this.cmbCategoria.Location = new System.Drawing.Point(162, 160);
             this.cmbCategoria.Name = "cmbCategoria";
             this.cmbCategoria.Size = new System.Drawing.Size(100, 21);
@@ -150,6 +159,7 @@
             this.btnCancelar.TabIndex = 12;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // ucAgregarProducto
             // 
@@ -170,6 +180,7 @@
             this.Controls.Add(this.lblTitulo);
             this.Name = "ucAgregarProducto";
             this.Size = new System.Drawing.Size(327, 377);
+            this.Load += new System.EventHandler(this.UcAgregarProducto_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

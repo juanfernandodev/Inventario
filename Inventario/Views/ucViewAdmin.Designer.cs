@@ -31,14 +31,14 @@
             this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
-            this.btnAgrearProducto = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.Numero_Serie = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CantidadExistencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnAgrearProducto = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnEliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.SuspendLayout();
@@ -75,25 +75,7 @@
             this.dgvProductos.ReadOnly = true;
             this.dgvProductos.Size = new System.Drawing.Size(643, 173);
             this.dgvProductos.TabIndex = 3;
-            // 
-            // btnAgrearProducto
-            // 
-            this.btnAgrearProducto.Location = new System.Drawing.Point(440, 79);
-            this.btnAgrearProducto.Name = "btnAgrearProducto";
-            this.btnAgrearProducto.Size = new System.Drawing.Size(99, 23);
-            this.btnAgrearProducto.TabIndex = 4;
-            this.btnAgrearProducto.Text = "Agregar Producto";
-            this.btnAgrearProducto.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(294, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "INVENTARIO";
-            this.label1.Click += new System.EventHandler(this.Label1_Click);
+            this.dgvProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvProductos_CellContentClick);
             // 
             // Numero_Serie
             // 
@@ -131,6 +113,25 @@
             this.CantidadExistencia.Name = "CantidadExistencia";
             this.CantidadExistencia.ReadOnly = true;
             // 
+            // btnAgrearProducto
+            // 
+            this.btnAgrearProducto.Location = new System.Drawing.Point(440, 79);
+            this.btnAgrearProducto.Name = "btnAgrearProducto";
+            this.btnAgrearProducto.Size = new System.Drawing.Size(99, 23);
+            this.btnAgrearProducto.TabIndex = 4;
+            this.btnAgrearProducto.Text = "Agregar Producto";
+            this.btnAgrearProducto.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(294, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(73, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "INVENTARIO";
+            this.label1.Click += new System.EventHandler(this.Label1_Click);
+            // 
             // btnEliminar
             // 
             this.btnEliminar.Location = new System.Drawing.Point(558, 78);
@@ -139,6 +140,7 @@
             this.btnEliminar.TabIndex = 6;
             this.btnEliminar.Text = "Eliminar Producto";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // ucViewAdmin
             // 
