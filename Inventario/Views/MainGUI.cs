@@ -19,7 +19,7 @@ namespace Inventario
         private ucViewAdmin ucViewAdmin;
         private List<object> productos;
         private AdminController adminController;
-
+         private ucAgregarProducto ucAgregarProducto;
         public Form1()
         {
             InitializeComponent();
