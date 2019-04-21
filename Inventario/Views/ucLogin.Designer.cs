@@ -57,98 +57,109 @@ namespace Inventario.Views
             this.panel1.Controls.Add(this.btnIngresar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(557, 401);
+            this.panel1.Size = new System.Drawing.Size(382, 256);
             this.panel1.TabIndex = 5;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel1_Paint);
             // 
             // lblPass
             // 
             this.lblPass.AutoSize = true;
             this.lblPass.BackColor = System.Drawing.Color.Transparent;
-            this.lblPass.Location = new System.Drawing.Point(172, 116);
+            this.lblPass.Location = new System.Drawing.Point(137, 67);
+            this.lblPass.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPass.Name = "lblPass";
-            this.lblPass.Size = new System.Drawing.Size(69, 17);
+            this.lblPass.Size = new System.Drawing.Size(53, 13);
             this.lblPass.TabIndex = 7;
             this.lblPass.Text = "Password";
+            this.lblPass.Click += new System.EventHandler(this.LblPass_Click);
             // 
             // lblCedula
             // 
             this.lblCedula.AutoSize = true;
             this.lblCedula.BackColor = System.Drawing.Color.Transparent;
-            this.lblCedula.Location = new System.Drawing.Point(172, 82);
+            this.lblCedula.Location = new System.Drawing.Point(137, 40);
+            this.lblCedula.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCedula.Name = "lblCedula";
-            this.lblCedula.Size = new System.Drawing.Size(52, 17);
+            this.lblCedula.Size = new System.Drawing.Size(40, 13);
             this.lblCedula.TabIndex = 6;
             this.lblCedula.Text = "Cedula";
+            this.lblCedula.Click += new System.EventHandler(this.LblCedula_Click);
             // 
             // txtCedula
             // 
-            this.txtCedula.Location = new System.Drawing.Point(296, 82);
-            this.txtCedula.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCedula.Location = new System.Drawing.Point(230, 40);
+            this.txtCedula.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtCedula.Name = "txtCedula";
-            this.txtCedula.Size = new System.Drawing.Size(100, 22);
+            this.txtCedula.Size = new System.Drawing.Size(76, 20);
             this.txtCedula.TabIndex = 5;
+            this.txtCedula.TextChanged += new System.EventHandler(this.TxtCedula_TextChanged);
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(296, 111);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPassword.Location = new System.Drawing.Point(230, 63);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '°';
-            this.txtPassword.Size = new System.Drawing.Size(100, 22);
+            this.txtPassword.Size = new System.Drawing.Size(76, 20);
             this.txtPassword.TabIndex = 4;
+            this.txtPassword.TextChanged += new System.EventHandler(this.TxtPassword_TextChanged);
             // 
             // chkAdministrador
             // 
             this.chkAdministrador.AutoSize = true;
-            this.chkAdministrador.Location = new System.Drawing.Point(175, 155);
-            this.chkAdministrador.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.chkAdministrador.Location = new System.Drawing.Point(139, 99);
+            this.chkAdministrador.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chkAdministrador.Name = "chkAdministrador";
-            this.chkAdministrador.Size = new System.Drawing.Size(117, 21);
+            this.chkAdministrador.Size = new System.Drawing.Size(89, 17);
             this.chkAdministrador.TabIndex = 3;
             this.chkAdministrador.Text = "Administrador";
             this.chkAdministrador.UseVisualStyleBackColor = true;
+            this.chkAdministrador.CheckedChanged += new System.EventHandler(this.ChkAdministrador_CheckedChanged);
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(240, 260);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSalir.Location = new System.Drawing.Point(190, 171);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(75, 23);
+            this.btnSalir.Size = new System.Drawing.Size(56, 19);
             this.btnSalir.TabIndex = 1;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
             // 
             // chkCajero
             // 
             this.chkCajero.AutoSize = true;
-            this.chkCajero.Location = new System.Drawing.Point(325, 155);
-            this.chkCajero.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.chkCajero.Location = new System.Drawing.Point(252, 99);
+            this.chkCajero.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chkCajero.Name = "chkCajero";
-            this.chkCajero.Size = new System.Drawing.Size(71, 21);
+            this.chkCajero.Size = new System.Drawing.Size(56, 17);
             this.chkCajero.TabIndex = 2;
             this.chkCajero.Text = "Cajero";
             this.chkCajero.UseVisualStyleBackColor = true;
+            this.chkCajero.CheckedChanged += new System.EventHandler(this.ChkCajero_CheckedChanged);
             // 
             // btnIngresar
             // 
-            this.btnIngresar.Location = new System.Drawing.Point(240, 209);
-            this.btnIngresar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnIngresar.Location = new System.Drawing.Point(190, 134);
+            this.btnIngresar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnIngresar.Name = "btnIngresar";
-            this.btnIngresar.Size = new System.Drawing.Size(75, 27);
+            this.btnIngresar.Size = new System.Drawing.Size(56, 22);
             this.btnIngresar.TabIndex = 0;
             this.btnIngresar.Text = "Ingresar";
             this.btnIngresar.UseVisualStyleBackColor = true;
             this.btnIngresar.Click += new System.EventHandler(this.BtnIngresar_Click);
             // 
-            // UserControl1
+            // ucLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
-            this.Name = "UserControl1";
-            this.Size = new System.Drawing.Size(557, 401);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Name = "ucLogin";
+            this.Size = new System.Drawing.Size(382, 256);
             this.Load += new System.EventHandler(this.UserControl1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

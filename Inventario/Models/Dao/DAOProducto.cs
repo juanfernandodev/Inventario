@@ -72,7 +72,8 @@ namespace Inventario.Models.DAO
         
         /* Devuelve la lista de productos local */
         public List<DTOProducto> darProductos()
-        {
+        {   
+
             return productos;
         }
 

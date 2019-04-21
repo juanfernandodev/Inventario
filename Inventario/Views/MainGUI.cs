@@ -1,4 +1,5 @@
 ﻿using Inventario.Controllers;
+using Inventario.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,12 +14,16 @@ namespace Inventario
 {
     public partial class Form1 : Form
     {
-        Controllers.LoginController controller;
+        private Controllers.LoginController controller;
+        private ucLogin ucLogin;
 
         public Form1()
         {
             InitializeComponent();
+            this.ucLogin = new ucLogin(this);
+            this.Controls.Add(ucLogin);
             controller = new Controllers.LoginController();
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -26,15 +31,9 @@ namespace Inventario
 
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        public void logear(string cedula, string rol, string pass)
         {
-            if (chkAdministrador.Checked){
-                controller.login(txtCedula.Text, "Administrador", txtPassword.Text);
-            }else{
-                controller.login(txtCedula.Text, "Cajero",txtPassword.Text);
-            }
-            
-           
+            this.controller.login(cedula, rol, pass);
         }
 
         private void Button2_Click(object sender, EventArgs e)
