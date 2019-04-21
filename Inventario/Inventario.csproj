@@ -62,18 +62,6 @@
     <Compile Include="Models\DTO\DTOProducto.cs" />
     <Compile Include="Models\iDAO\iDAOProducto.cs" />
     <Compile Include="Models\iDAO\iDAOUsuario.cs" />
-    <Compile Include="Views\Administrador.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Administrador.Designer.cs">
-      <DependentUpon>Administrador.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Cajero.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Cajero.Designer.cs">
-      <DependentUpon>Cajero.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\MainGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,15 +71,24 @@
     <Compile Include="Config\BdContext.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\UserControl1.cs">
+    <Compile Include="Views\ucAgregarProducto.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\UserControl1.Designer.cs">
-      <DependentUpon>UserControl1.cs</DependentUpon>
+    <Compile Include="Views\ucAgregarProducto.Designer.cs">
+      <DependentUpon>ucAgregarProducto.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Views\Administrador.resx">
-      <DependentUpon>Administrador.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="Views\ucViewAdmin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ucViewAdmin.Designer.cs">
+      <DependentUpon>ucViewAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ucLogin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ucLogin.Designer.cs">
+      <DependentUpon>ucLogin.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Views\MainGUI.resx">
       <DependentUpon>MainGUI.cs</DependentUpon>
     </EmbeddedResource>
@@ -104,8 +101,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Views\UserControl1.resx">
-      <DependentUpon>UserControl1.cs</DependentUpon>
+    <EmbeddedResource Include="Views\ucAgregarProducto.resx">
+      <DependentUpon>ucAgregarProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ucLogin.resx">
+      <DependentUpon>ucLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ucViewAdmin.resx">
+      <DependentUpon>ucViewAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

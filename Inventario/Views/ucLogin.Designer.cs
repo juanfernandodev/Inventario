@@ -2,7 +2,7 @@
 
 namespace Inventario.Views
 {
-    partial class UserControl1
+    partial class ucLogin
     {
      
        

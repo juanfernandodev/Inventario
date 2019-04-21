@@ -10,25 +10,11 @@ using System.Windows.Forms;
 
 namespace Inventario.Views
 {
-    public partial class UserControl1 : UserControl
+    public partial class ucAgregarProducto : UserControl
     {
-
-        Form x = new Form();
-        x = Form1;
-        public UserControl1()
+        public ucAgregarProducto()
         {
-
             InitializeComponent();
-        }
-
-        private void UserControl1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BtnIngresar_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
