@@ -30,8 +30,9 @@ namespace Inventario.Controllers
 
         public List<object> listarPorducto(){
             productos = daoProducto.darProductos();
+             
             foreach (object pro in productos){
-                Console.WriteLine(pro);
+
                 products.Add(pro);
             }
             return products;
