@@ -1,4 +1,5 @@
 ﻿using Inventario.Controllers;
+using Inventario.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,15 +12,19 @@ using System.Windows.Forms;
 
 namespace Inventario
 {
-    public partial class Form1 : Form{
-        Controllers.LoginController controller;
-        Controllers.AdminController adminController;
-        private List<object> products;
+    public partial class Form1 : Form
+    {
+        private Controllers.LoginController controller;
+        private ucLogin ucLogin;
+        private ucViewAdmin ucViewAdmin;
 
         public Form1()
         {
             InitializeComponent();
-            controller = new Controllers.LoginController();
+            this.ucLogin = new ucLogin(this);
+            this.Controls.Add(ucLogin);
+            controller = new Controllers.LoginController(this);
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -27,25 +32,23 @@ namespace Inventario
 
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        public bool logear(string cedula, string rol, string pass)
         {
-            if (chkAdministrador.Checked){
-                controller.login(txtCedula.Text, "Administrador", txtPassword.Text);
-            }else{
-                controller.login(txtCedula.Text, "Cajero",txtPassword.Text);
-            }
-            
-           
+            return this.controller.login(cedula, rol, pass);
+
+        }
+
+        public void AbrirVistaAdmin(string rol, string nombre, string apellido)
+        {
+ 
+            this.Controls.Clear();
+            this.ucViewAdmin = new ucViewAdmin(this);
+            this.Controls.Add(this.ucViewAdmin);
         }
 
         private void Button2_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        public List<object> listaProductos(){
-            products = adminController.listarPorducto();
-            return products;
         }
 
         private void CheckBox1_CheckedChanged(object sender, EventArgs e)

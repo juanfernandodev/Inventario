@@ -47,13 +47,21 @@ namespace Inventario.Models.DAO
                 this.conexionbd = this.ConectarBD().ConexionBd;
                 declaracion = "SELECT * FROM Usuario WHERE cedula = '" + cedula + "' AND rol = '" + role + "' AND password = MD5('" + password + "');";
                 this. reader = this.database.consultar(declaracion);
-                if (this.reader.Read())
+                if (this.reader.HasRows)
                 {
-                    idUsuario = reader.GetBoolean(0) ? 1 : 0;
-                    nombre = reader.GetString(2);
-                    apellido = reader.GetString(3);
-                    return new DTOUsuario(1, cedula, nombre, apellido, role, password);
+                    if (this.reader.Read())
+                    {
+                        idUsuario = reader.GetBoolean(0) ? 1 : 0;
+                        nombre = reader.GetString(2);
+                        apellido = reader.GetString(3);
+                        return new DTOUsuario(idUsuario, cedula, nombre, apellido, role, password);
+                    }
                 }
+                else
+                {
+                    return null;
+                }
+                
                 
             }catch (MySqlException ex){
                  MessageBox.Show(ex.ToString());

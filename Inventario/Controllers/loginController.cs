@@ -15,31 +15,34 @@ namespace Inventario.Controllers
 
     class LoginController{
 
+        private Form1 main;
         private DAOUsuario user;
         private DTOUsuario dtoUser;
-        private List<string> valores;
+        
 
-        public LoginController(){
+        public LoginController(Form1 main){
             user = new DAOUsuario();
             dtoUser = new DTOUsuario();
-            valores = new List<string>();
-        }
-
-        public List<string> login(string cedula, string rol, string pass){
-            dtoUser = user.BuscarUsuario(cedula, rol, pass);
-            valores.Add(dtoUser.Nombre);
-            valores.Add(dtoUser.Rol);
-            MessageBox.Show(dtoUser.Nombre);
-            return valores;
-        }
-
-        public string vista(){
-            string rol;
-            if (valores.Any()&& valores.ElementAt(1)=="Administrador"){
+            this.main = main;
             
-            }
-            return "hola";
         }
+
+        public bool login(string cedula, string rol, string pass){
+            dtoUser = user.BuscarUsuario(cedula, rol, pass);
+
+            if(dtoUser != null)
+            {
+               
+                
+                this.main.AbrirVistaAdmin(rol, dtoUser.Nombre, dtoUser.Apellido);
+                
+
+            }
+
+            return false;
+
+        }
+
 
     }
 }

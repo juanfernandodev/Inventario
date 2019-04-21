@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace Inventario.Views
 {
-    public partial class ucViewAdmin : UserControl{
-
-        private Form1 m = new Form1();
-        
-
-        public ucViewAdmin()
+    public partial class ucViewAdmin : UserControl
+    {
+        private Form1 main;
+        public ucViewAdmin(Form1 main)
         {
+            this.main = main;
             InitializeComponent();
+            this.Dock = DockStyle.Fill;
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -31,7 +31,7 @@ namespace Inventario.Views
         }
 
         private void UcViewAdmin_Load(object sender, EventArgs e){
-           dgvProductos.DataSource = m.listaProductos();
+           // dgvProductos.DataSource 
         }
     }
 }
