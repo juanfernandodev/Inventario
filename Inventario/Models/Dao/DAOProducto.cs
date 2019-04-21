@@ -45,7 +45,7 @@ namespace Inventario.Models.DAO
         {
             this.productos = new List<DTOProducto>();
             this.conexionbd = this.ConectarBD().ConexionBd;
-            declaracion = "Select * FROM Producto";
+            declaracion = "Select * FROM producto";
             this.reader = this.database.consultar(declaracion);
             
             while (this.reader.Read())
@@ -71,8 +71,8 @@ namespace Inventario.Models.DAO
         }
         
         /* Devuelve la lista de productos local */
-        public List<DTOProducto> darProductos()
-        {
+        public List<DTOProducto> darProductos(){
+                this.actualizarProductosLocalmente();
             return productos;
         }
 

@@ -31,7 +31,7 @@ namespace Inventario.Views
         }
 
         private void UcViewAdmin_Load(object sender, EventArgs e){
-           // dgvProductos.DataSource 
+            dgvProductos.DataSource = main.listarProductos();
         }
 
         private void BtnAgrearProducto_Click(object sender, EventArgs e)
