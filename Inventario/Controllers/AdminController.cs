@@ -46,6 +46,10 @@ namespace Inventario.Controllers
                 listaProductos.Add(productosVector);
                 
             }
+
+            Console.WriteLine(listaProductos[0][1]);
+
+
             return listaProductos;
         }
         public void actualizar()

@@ -36,16 +36,10 @@ namespace Inventario.Views
              List<string [] > productos =  main.listarProductos(); // Carga los productos al DataGridView una lista de objetos
             //MessageBox.Show(productos[0][0]);
             this.dgvProductos.DataSource = productos;
-            //creo que se debe hacer un datatable, y luego eso se asigna ejemplo: http://gastontcet.blogspot.com/2013/12/c-cargar-datagridview-partir-de-un.html
+            //creo que se debe hacer un datatable, y luego eso se asigna ejemplo: http:gastontcet.blogspot.com/2013/12/c-cargar-datagridview-partir-de-un.html
 
 
-            /*foreach(string[] producto in productos)
-            {
-                //Console.WriteLine(producto[1]);
-               // this.dgvProductos.DataSource = producto;
-                //this.dgvProductos.Rows.Insert(Convert.ToInt32(producto[0]), producto[1], producto[2], producto[3], producto[4], producto[5]);
-               
-            }*/
+           
         }
 
         private void BtnEliminar_Click(object sender, EventArgs e){
