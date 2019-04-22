@@ -44,17 +44,18 @@ namespace Inventario.Models.Dao
         /* Este metodo es para eliminacion, actualizacion, insertar, es decir para ALTERAR una tabla de la BD */
         public void alterar(string declaracion)
         {
-            conexionBd.Open();
+            this.conexionBd.Open();
             try
             {
-                this.cmd = new MySqlCommand(declaracion, conexionBd);
+                this.cmd = new MySqlCommand(declaracion, this.conexionBd);
+                this.cmd.ExecuteReader();
             }catch (MySqlException ex){
                  MessageBox.Show(ex.ToString());
             }
 
 
 
-    conexionBd.Close();
+            conexionBd.Close();
         }
 
         public MySqlDataReader consultar(string declaracion)

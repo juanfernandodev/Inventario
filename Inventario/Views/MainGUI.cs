@@ -44,9 +44,10 @@ namespace Inventario
 
         }
 
-        internal void AgregarProducto(string nombre, string proveedor, string categoria, int precio, int cantidad)
+        internal Boolean AgregarProducto(string nombre, string proveedor, string categoria, int precio, int cantidad)
         {
-            this.adminController.agregarProducto(nombre,proveedor,categoria,precio,cantidad);
+            return this.adminController.agregarProducto(nombre,proveedor,categoria,precio,cantidad);
+
         }
 
         internal void VolverToInventario()
@@ -122,9 +123,9 @@ namespace Inventario
         }
 
         public List< string [] > listarProductos(){
-            productos = adminController.ListarProductosTabla();
+            return adminController.ListarProductosTabla();
 
-            return productos;
+          
 
         }
     }

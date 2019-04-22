@@ -23,8 +23,8 @@ namespace Inventario.Controllers
             products = new List<object>();
         }
 
-        public void agregarProducto(string nombre,string proveedor,string categoria,int precioUnidad, int cantidadExistente){
-            daoProducto.CrearProducto(nombre, proveedor, categoria, precioUnidad, cantidadExistente);
+        public Boolean agregarProducto(string nombre,string proveedor,string categoria,int precioUnidad, int cantidadExistente){
+            return daoProducto.CrearProducto(nombre, proveedor, categoria, precioUnidad, cantidadExistente);
         }
 
         public void eliminarProducto(){
@@ -39,7 +39,6 @@ namespace Inventario.Controllers
             foreach (DTOProducto producto in productos){
                 productosVector[0] = Convert.ToString(producto.NumSerie);
                 productosVector[1] = producto.NombreProducto;
-                Console.WriteLine(productosVector[1]);
                 productosVector[2] = producto.Proveedor;
                 productosVector[3] = producto.Categoria;
                 productosVector[4] = Convert.ToString(producto.PrecioUnidad);

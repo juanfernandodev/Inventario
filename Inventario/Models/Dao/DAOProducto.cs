@@ -78,22 +78,30 @@ namespace Inventario.Models.DAO
         }
 
         /* Crea producto nuevo */
-        public void CrearProducto(string nombreProducto, string proveedor, string categoria, int precioUnidad, int cantidadExistente){
+        public Boolean CrearProducto(string nombreProducto, string proveedor, string categoria, int precioUnidad, int cantidadExistente){
             try { 
             this.ConectarBD();
             declaracion = "INSERT INTO Producto(nombreproducto, proveedor, categoria, preciounidad, cantidadexistente) VALUES" +
-                "("+nombreProducto+","+proveedor+","+categoria+","+precioUnidad+","+cantidadExistente+");";
+                "('"+nombreProducto+"','"+proveedor+"','"+categoria+"',"+precioUnidad+","+cantidadExistente+");";
+                Console.WriteLine(declaracion);
             this.database.alterar(declaracion); //Inserta el producto en la BD
             this.database.CerrarConexion();
-             }catch (MySqlException ex){
-                 MessageBox.Show(ex.ToString());
+
+                if (this.productos == null)
+                {
+                    this.productos = new List<DTOProducto>();
+                }
+                this.productos.Add(this.BuscarProductoNombre(nombreProducto)); //Crea el producto local
+
+                return true;
             }
-    /*if(this.productos == null)
-    {
-        this.productos = new List<DTOProducto>();
-    }
-    this.productos.Add(this.BuscarProductoNombre(nombreProducto)); //Crea el producto local*/
-}
+            catch (MySqlException ex){
+                 MessageBox.Show(ex.ToString());
+                
+            }
+
+            return false;       
+        }
 
         /* Elimina un producto */
         public void EliminarProducto(int numserie)
