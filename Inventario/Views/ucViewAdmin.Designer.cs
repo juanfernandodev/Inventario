@@ -44,6 +44,7 @@ namespace Inventario.Views
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnEditarProducto = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnVender = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -165,11 +166,21 @@ namespace Inventario.Views
             this.label2.TabIndex = 8;
             this.label2.Text = "Busca rapidamente el producto por su Numero de Serie:";
             // 
+            // btnVender
+            // 
+            this.btnVender.Location = new System.Drawing.Point(558, 51);
+            this.btnVender.Name = "btnVender";
+            this.btnVender.Size = new System.Drawing.Size(99, 23);
+            this.btnVender.TabIndex = 9;
+            this.btnVender.Text = "Vender Producto";
+            this.btnVender.UseVisualStyleBackColor = true;
+            // 
             // ucViewAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.Controls.Add(this.btnVender);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnEditarProducto);
             this.Controls.Add(this.btnEliminar);
@@ -202,6 +213,7 @@ namespace Inventario.Views
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnEditarProducto;
         private Label label2;
+        private Button btnVender;
 
         public Button BtnAgrearProducto
         {
@@ -227,6 +239,10 @@ namespace Inventario.Views
             }
         }
 
-
+        public Button BtnVenderProducto{
+            get{
+                return this.btnVender;
+            }
+        }
     }
 }

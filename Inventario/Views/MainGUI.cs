@@ -54,6 +54,7 @@ namespace Inventario
             
             this.Controls.Clear();
             this.ucViewAdmin = new ucViewAdmin(this);
+            this.ucViewAdmin.BtnVenderProducto.Hide();
             this.Controls.Add(this.ucViewAdmin);
             
         }

@@ -33,14 +33,12 @@ namespace Inventario.Views
         }
 
         private void UcViewAdmin_Load(object sender, EventArgs e){
-            List<string [] > productos =  main.listarProductos(); // Carga los productos al DataGridView una lista de objetos
-           
-            
-            foreach(string[] producto in productos)
+           // List<string [] > productos =  main.listarProductos(); // Carga los productos al DataGridView una lista de objetos
+            //MessageBox.Show(productos[0][0]);
+            /*foreach(string[] producto in productos)
             {
-                MessageBox.Show(producto[0]);
-                //this.dgvProductos.Rows.Insert(Convert.ToInt32(producto[0]), producto[1], producto[2], producto[3], producto[4], producto[5]);
-            }
+                this.dgvProductos.Rows.Insert(Convert.ToInt32(producto[0]), producto[1], producto[2], producto[3], producto[4], producto[5]);
+            }*/
             
         }
 
