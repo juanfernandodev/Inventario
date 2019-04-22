@@ -143,6 +143,7 @@
             this.btnAgregarProducto.TabIndex = 14;
             this.btnAgregarProducto.Text = "Editar";
             this.btnAgregarProducto.UseVisualStyleBackColor = true;
+            this.btnAgregarProducto.Click += new System.EventHandler(this.BtnAgregarProducto_Click);
             // 
             // lblTitulo
             // 

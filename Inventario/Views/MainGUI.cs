@@ -56,6 +56,10 @@ namespace Inventario
             this.Controls.Add(this.ucViewAdmin);
         }
 
+        internal string [] EditarProducto(string nombre){
+            return this.adminController.actualizar(nombre);
+        }
+
         public void AbrirVistaAdmin(string nombre, string apellido)
         {
             
@@ -95,10 +99,10 @@ namespace Inventario
             this.Close();
         }
 
-        internal void AbrirVistaEditarProducto()
+        internal void AbrirVistaEditarProducto(string nombre)
         {
             this.Controls.Clear(); //Limpia el contenidor hijo que tiene.
-            this.ucEditarProducto = new ucEditar(this); //Instancia el nuevo user control
+            this.ucEditarProducto = new ucEditar(this,nombre); //Instancia el nuevo user control
             this.Controls.Add(this.ucEditarProducto); //Posicionar el hijo en el padre
         }
 
@@ -123,10 +127,13 @@ namespace Inventario
         }
 
         public List< string [] > listarProductos(){
+          /*  List<String[]> productos =adminController.ListarProductosTabla();
+            foreach (string[] p in productos)
+            {
+                Console.WriteLine(p[0] + " " + p[1] + " " + p[2] + " " + p[3] + " " + p[4] + " " + p[5] + " ");
+              
+            }*/
             return adminController.ListarProductosTabla();
-
-          
-
         }
     }
 }

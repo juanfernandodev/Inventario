@@ -13,10 +13,11 @@ namespace Inventario.Views
     public partial class ucEditar : UserControl
     {
         private Form1 main;
-        public ucEditar(Form1 main)
+        private string nombre;
+        public ucEditar(Form1 main,string nombre)
         {
             this.main = main;
-            
+            this.nombre = nombre;
             InitializeComponent();
            
             this.cmbCategoria.Items.Add("Bebidas");
@@ -50,6 +51,22 @@ namespace Inventario.Views
         private void CmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void BtnAgregarProducto_Click(object sender, EventArgs e)
+        {
+            string cadena = "No se ha podido actualizar el producto";
+            if (this.nombre!=""){
+                string[] producto = this.main.EditarProducto(this.nombre); //Revisar
+                if (producto.Length == 0){
+                    txtNombre.Text = producto[1];
+                    txtProveedor.Text = producto[2];
+                    txtPrecio.Text = producto[4];
+                    txtExistencia.Text = producto[5];
+                    cadena = "¡Producto ha sido actualizado con exito!";
+                }
+            }
+            MessageBox.Show(cadena);
         }
     }
 }

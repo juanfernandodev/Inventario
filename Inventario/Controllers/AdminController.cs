@@ -14,13 +14,11 @@ namespace Inventario.Controllers
         
         private List<DTOProducto> productos;
         private DAOProducto daoProducto;
-        private List<object> products;
 
         public AdminController(){
             
             productos = new List<DTOProducto>();
             daoProducto = new DAOProducto();
-            products = new List<object>();
         }
 
         public Boolean agregarProducto(string nombre,string proveedor,string categoria,int precioUnidad, int cantidadExistente){
@@ -43,18 +41,22 @@ namespace Inventario.Controllers
                 productosVector[3] = producto.Categoria;
                 productosVector[4] = Convert.ToString(producto.PrecioUnidad);
                 productosVector[5] = Convert.ToString(producto.CantidadExistente);
-                listaProductos.Add(productosVector);
-                
+                listaProductos.Add(productosVector);  
             }
-
-            Console.WriteLine(listaProductos[0][1]);
-
-
             return listaProductos;
         }
-        public void actualizar()
-        {
-            //para saber cual es la fila que voy a actualizar puedo simplemente consultar con el update
+        public string[] actualizar(string nombre){
+            DTOProducto dto = daoProducto.BuscarProductoNombre(nombre);
+            string[] producto =
+            {
+                dto.NumSerie.ToString(),
+                dto.NombreProducto,
+                dto.Proveedor,
+                dto.Categoria,
+                dto.PrecioUnidad.ToString(),
+                dto.CantidadExistente.ToString()
+            };
+            return producto;
         }
 
         public void buscar(){

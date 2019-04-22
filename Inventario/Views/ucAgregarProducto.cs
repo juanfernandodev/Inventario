@@ -41,7 +41,7 @@ namespace Inventario.Views
             string cadena = "No se ha podido agregar el producto";
             if (this.main.AgregarProducto(txtNombre.Text, txtProveedor.Text, cmbCategoria.SelectedItem.ToString(), int.Parse(txtPrecio.Text), int.Parse(txtExistencia.Text)))
             {
-                cadena = "¡Producto ha sido agreggado con exito!";
+                cadena = "¡Producto ha sido agregado con exito!";
             }
 
             MessageBox.Show(cadena);

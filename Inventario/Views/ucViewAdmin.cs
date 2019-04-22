@@ -13,6 +13,7 @@ namespace Inventario.Views
     public partial class ucViewAdmin : UserControl
     {
         private Form1 main;
+        private string nombreCelda="";
         public ucViewAdmin(Form1 main)
         {
             this.main = main;
@@ -34,14 +35,11 @@ namespace Inventario.Views
 
         private void UcViewAdmin_Load(object sender, EventArgs e){
             List<string [] > productos =  main.listarProductos(); // Carga los productos al DataGridView una lista de objetos
-            //string[] p = new string[5];
-            foreach (string[] p in productos){
-                this.dgvProductos.DataSource = p;
+            foreach (string[] p in productos)
+            {
+                Console.WriteLine(p[0]+" "+p[1]+" " + p[2] + " " + p[3] + " "+p[4] + " " + p[5] + " ");
+                this.dgvProductos.Rows.Add(p);
             }
-            //MessageBox.Show(productos[0][0]);
-            //this.dgvProductos.DataSource = productos;
-            //creo que se debe hacer un datatable, y luego eso se asigna ejemplo: http:gastontcet.blogspot.com/2013/12/c-cargar-datagridview-partir-de-un.html
-    
         }
 
         private void BtnEliminar_Click(object sender, EventArgs e){
@@ -49,23 +47,25 @@ namespace Inventario.Views
         }
 
         private void DgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e){
-            Console.WriteLine("Entra");//No entra al metodo
-            string valor="Valor de fila: ";
-                valor = dgvProductos.CurrentCell.Value.ToString();
-                //+= dgvProductos.Rows[dgvProductos.CurrentRow.Index].Cells[e.RowIndex].Value.ToString();  //Me da la fila seleccionada
-                Console.WriteLine(valor);
+            this.nombreCelda = this.dgvProductos.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
         }
 
         private void BtnAgrearProducto_Click(object sender, EventArgs e)
         {
-          
             this.main.AbrirVistaAgregarProducto();
         }
 
         private void Button1_Click_1(object sender, EventArgs e)
         {
-       
-            this.main.AbrirVistaEditarProducto();
+            if (this.nombreCelda!=""){
+                this.main.AbrirVistaEditarProducto(this.nombreCelda);
+
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una fila para poder editar");
+                this.main.AbrirVistaAdmin("","");
+            }
         }
 
         private void DgvProductos_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
