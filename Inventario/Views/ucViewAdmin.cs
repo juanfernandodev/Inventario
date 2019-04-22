@@ -33,13 +33,12 @@ namespace Inventario.Views
         }
 
         private void UcViewAdmin_Load(object sender, EventArgs e){
-           // List<string [] > productos =  main.listarProductos(); // Carga los productos al DataGridView una lista de objetos
+            // List<string [] > productos =  main.listarProductos(); // Carga los productos al DataGridView una lista de objetos
             //MessageBox.Show(productos[0][0]);
             /*foreach(string[] producto in productos)
             {
                 this.dgvProductos.Rows.Insert(Convert.ToInt32(producto[0]), producto[1], producto[2], producto[3], producto[4], producto[5]);
             }*/
-            
         }
 
         private void BtnEliminar_Click(object sender, EventArgs e){
@@ -47,9 +46,11 @@ namespace Inventario.Views
         }
 
         private void DgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e){
-            if (!(e.RowIndex > -1)){
-                dgvProductos.Rows[dgvProductos.CurrentRow.Index].Cells[e.RowIndex].Value.ToString();  //Me da la fila seleccionada
-            }
+            Console.WriteLine("Entra");//No entra al metodo
+            string valor="Valor de fila: ";
+                valor = dgvProductos.CurrentCell.Value.ToString();
+                //+= dgvProductos.Rows[dgvProductos.CurrentRow.Index].Cells[e.RowIndex].Value.ToString();  //Me da la fila seleccionada
+                Console.WriteLine(valor);
         }
 
         private void BtnAgrearProducto_Click(object sender, EventArgs e)

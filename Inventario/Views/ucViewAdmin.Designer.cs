@@ -75,9 +75,10 @@ namespace Inventario.Views
             this.Categoria,
             this.Precio,
             this.CantidadExistencia});
+            this.dgvProductos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dgvProductos.Location = new System.Drawing.Point(14, 84);
+            this.dgvProductos.MultiSelect = false;
             this.dgvProductos.Name = "dgvProductos";
-            this.dgvProductos.ReadOnly = true;
             this.dgvProductos.Size = new System.Drawing.Size(643, 173);
             this.dgvProductos.TabIndex = 3;
             this.dgvProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvProductos_CellContentClick_1);
