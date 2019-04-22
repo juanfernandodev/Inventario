@@ -68,5 +68,10 @@ namespace Inventario.Views
         {
 
         }
+
+        private void BtnVender_Click(object sender, EventArgs e)
+        {
+            this.main.AbrirVistaVenderProducto();
+        }
     }
 }

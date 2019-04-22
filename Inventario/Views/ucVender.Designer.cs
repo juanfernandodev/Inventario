@@ -64,7 +64,7 @@
             this.groupBox1.Controls.Add(this.lblCategoria);
             this.groupBox1.Controls.Add(this.lblNombre);
             this.groupBox1.Controls.Add(this.lblNumSerie);
-            this.groupBox1.Location = new System.Drawing.Point(25, 52);
+            this.groupBox1.Location = new System.Drawing.Point(48, 34);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(247, 175);
             this.groupBox1.TabIndex = 0;
@@ -79,7 +79,7 @@
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.lblNombres);
             this.groupBox2.Controls.Add(this.lblCedula);
-            this.groupBox2.Location = new System.Drawing.Point(350, 52);
+            this.groupBox2.Location = new System.Drawing.Point(373, 34);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(247, 175);
             this.groupBox2.TabIndex = 1;
@@ -174,7 +174,7 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(138, 271);
+            this.textBox4.Location = new System.Drawing.Point(161, 253);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(100, 20);
             this.textBox4.TabIndex = 2;
@@ -182,7 +182,7 @@
             // lblCantidad
             // 
             this.lblCantidad.AutoSize = true;
-            this.lblCantidad.Location = new System.Drawing.Point(58, 278);
+            this.lblCantidad.Location = new System.Drawing.Point(81, 260);
             this.lblCantidad.Name = "lblCantidad";
             this.lblCantidad.Size = new System.Drawing.Size(49, 13);
             this.lblCantidad.TabIndex = 3;
@@ -191,7 +191,7 @@
             // lblTotalPagar
             // 
             this.lblTotalPagar.AutoSize = true;
-            this.lblTotalPagar.Location = new System.Drawing.Point(366, 284);
+            this.lblTotalPagar.Location = new System.Drawing.Point(389, 266);
             this.lblTotalPagar.Name = "lblTotalPagar";
             this.lblTotalPagar.Size = new System.Drawing.Size(71, 13);
             this.lblTotalPagar.TabIndex = 4;
@@ -199,7 +199,7 @@
             // 
             // txtTotalPagar
             // 
-            this.txtTotalPagar.Location = new System.Drawing.Point(470, 278);
+            this.txtTotalPagar.Location = new System.Drawing.Point(493, 260);
             this.txtTotalPagar.Name = "txtTotalPagar";
             this.txtTotalPagar.ReadOnly = true;
             this.txtTotalPagar.Size = new System.Drawing.Size(100, 20);
@@ -207,7 +207,7 @@
             // 
             // btnVender
             // 
-            this.btnVender.Location = new System.Drawing.Point(138, 339);
+            this.btnVender.Location = new System.Drawing.Point(161, 321);
             this.btnVender.Name = "btnVender";
             this.btnVender.Size = new System.Drawing.Size(75, 23);
             this.btnVender.TabIndex = 6;
@@ -216,12 +216,13 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(400, 339);
+            this.btnCancelar.Location = new System.Drawing.Point(423, 321);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // txtNumSerie
             // 

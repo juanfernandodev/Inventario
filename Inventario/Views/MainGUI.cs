@@ -19,8 +19,9 @@ namespace Inventario
         private ucViewAdmin ucViewAdmin;
         private List<string []> productos;
         private AdminController adminController;
-         private ucAgregarProducto ucAgregarProducto;
+        private ucAgregarProducto ucAgregarProducto;
         private ucEditar ucEditarProducto;
+        private ucVender ucVender;
 
         public Form1()
         {
@@ -75,6 +76,14 @@ namespace Inventario
             this.ucAgregarProducto = new ucAgregarProducto(this);
             this.Controls.Add(this.ucAgregarProducto);
         }
+
+        internal void AbrirVistaVenderProducto()
+        {
+            this.Controls.Clear();
+            this.ucVender = new ucVender(this);
+            this.Controls.Add(this.ucVender);
+        }
+
         private void Button2_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -82,9 +91,9 @@ namespace Inventario
 
         internal void AbrirVistaEditarProducto()
         {
-            this.Controls.Clear();
-            this.ucEditarProducto = new ucEditar(this);
-            this.Controls.Add(this.ucEditarProducto);
+            this.Controls.Clear(); //Limpia el contenidor hijo que tiene.
+            this.ucEditarProducto = new ucEditar(this); //Instancia el nuevo user control
+            this.Controls.Add(this.ucEditarProducto); //Posicionar el hijo en el padre
         }
 
         private void CheckBox1_CheckedChanged(object sender, EventArgs e)

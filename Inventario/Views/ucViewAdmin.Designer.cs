@@ -174,6 +174,7 @@ namespace Inventario.Views
             this.btnVender.TabIndex = 9;
             this.btnVender.Text = "Vender Producto";
             this.btnVender.UseVisualStyleBackColor = true;
+            this.btnVender.Click += new System.EventHandler(this.BtnVender_Click);
             // 
             // ucViewAdmin
             // 

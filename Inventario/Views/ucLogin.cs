@@ -38,12 +38,8 @@ namespace Inventario.Views
             }
 
           
-                MessageBox.Show("Credenciales Incorrectas. Vuelva a pronto :D");
-           
-
-
-           
-            
+                MessageBox.Show("Credenciales Incorrectas. Vuelva pronto");
+      
         }
 
         private void Panel1_Paint(object sender, PaintEventArgs e)

@@ -12,8 +12,10 @@ namespace Inventario.Views
 {
     public partial class ucVender : UserControl
     {
-        public ucVender()
+        private Form1 main;
+        public ucVender(Form1 main)
         {
+            this.main = main;
             InitializeComponent();
         }
 
@@ -25,6 +27,11 @@ namespace Inventario.Views
         private void TextBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            this.main.AbrirVistaCajero("","");
         }
     }
 }
