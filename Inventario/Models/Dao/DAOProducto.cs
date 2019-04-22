@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Inventario.Models.DAO
 {
@@ -78,13 +79,21 @@ namespace Inventario.Models.DAO
 
         /* Crea producto nuevo */
         public void CrearProducto(string nombreProducto, string proveedor, string categoria, int precioUnidad, int cantidadExistente){
+            try { 
             this.ConectarBD();
-            declaracion = "INSERT INTO Producto(num_serie, nombreproducto, proveedor, categoria, preciounidad, cantidadexistente) VALUES" +
+            declaracion = "INSERT INTO Producto(nombreproducto, proveedor, categoria, preciounidad, cantidadexistente) VALUES" +
                 "("+nombreProducto+","+proveedor+","+categoria+","+precioUnidad+","+cantidadExistente+");";
             this.database.alterar(declaracion); //Inserta el producto en la BD
             this.database.CerrarConexion();
-            this.productos.Add(this.BuscarProductoNombre(nombreProducto)); //Crea el producto local
-        }
+             }catch (MySqlException ex){
+                 MessageBox.Show(ex.ToString());
+            }
+    /*if(this.productos == null)
+    {
+        this.productos = new List<DTOProducto>();
+    }
+    this.productos.Add(this.BuscarProductoNombre(nombreProducto)); //Crea el producto local*/
+}
 
         /* Elimina un producto */
         public void EliminarProducto(int numserie)

@@ -13,13 +13,14 @@ namespace Inventario.Views
 {
     public partial class ucAgregarProducto : UserControl{
 
-        private AdminController adminController;
+       
         private Form1 main;
 
         public ucAgregarProducto(Form1 main)
         {
-            adminController = new AdminController();
+
             InitializeComponent();
+            this.cmbCategoria.Items.Clear();
             this.cmbCategoria.Items.Add("Bebidas");
             this.cmbCategoria.Items.Add("Carnes");
             this.cmbCategoria.Items.Add("Frutas");
@@ -37,7 +38,8 @@ namespace Inventario.Views
         }
 
         private void BtnAgregarProducto_Click(object sender, EventArgs e){
-            adminController.agregarProducto(txtNombre.Text, txtProveedor.Text, cmbCategoria.SelectedItem.ToString(), int.Parse(txtPrecio.Text), int.Parse(txtExistencia.Text));
+            this.main.AgregarProducto(txtNombre.Text, txtProveedor.Text, cmbCategoria.SelectedItem.ToString(), int.Parse(txtPrecio.Text), int.Parse(txtExistencia.Text));
+           
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)

@@ -44,6 +44,11 @@ namespace Inventario
 
         }
 
+        internal void AgregarProducto(string nombre, string proveedor, string categoria, int precio, int cantidad)
+        {
+            this.adminController.agregarProducto(nombre,proveedor,categoria,precio,cantidad);
+        }
+
         internal void VolverToInventario()
         {
             this.Controls.Clear();

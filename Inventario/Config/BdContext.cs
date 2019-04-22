@@ -45,8 +45,16 @@ namespace Inventario.Models.Dao
         public void alterar(string declaracion)
         {
             conexionBd.Open();
-            this.cmd = new MySqlCommand(declaracion, conexionBd);
-            conexionBd.Close();
+            try
+            {
+                this.cmd = new MySqlCommand(declaracion, conexionBd);
+            }catch (MySqlException ex){
+                 MessageBox.Show(ex.ToString());
+            }
+
+
+
+    conexionBd.Close();
         }
 
         public MySqlDataReader consultar(string declaracion)
