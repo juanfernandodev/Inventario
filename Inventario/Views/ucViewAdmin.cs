@@ -33,14 +33,31 @@ namespace Inventario.Views
         }
 
         private void UcViewAdmin_Load(object sender, EventArgs e){
-             List<string [] > productos =  main.listarProductos(); // Carga los productos al DataGridView una lista de objetos
+
+            List<string[]> productos = main.listarProductos();
+            foreach (string[] p in productos)
+            {
+                this.dgvProductos.Rows.Add(p);
+            }
+
+            /*List<string [] > productos =  main.listarProductos(); // Carga los productos al DataGridView una lista de objetos
             //MessageBox.Show(productos[0][0]);
             this.dgvProductos.DataSource = productos;
             //creo que se debe hacer un datatable, y luego eso se asigna ejemplo: http:gastontcet.blogspot.com/2013/12/c-cargar-datagridview-partir-de-un.html
 
-
+            */
            
         }
+        public void probando()
+        {
+            List<string[]> productos = main.listarProductos();
+            foreach (string [] p in productos)
+            {
+                this.dgvProductos.Rows.Add(p);
+            }
+
+        }
+
 
         private void BtnEliminar_Click(object sender, EventArgs e){
             //dataGridView1.SelectedRows[i].Index.ToString()
