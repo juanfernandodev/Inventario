@@ -54,6 +54,7 @@ namespace Inventario.Models.DAO
                 productos.Add(new DTOProducto(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetInt32(4), reader.GetInt32(5)));
             }
             this.database.CerrarConexion();
+            //Console.WriteLine("Dao " + productos[1]);
             return productos;
         }
 

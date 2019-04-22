@@ -6,11 +6,12 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Inventario.Controllers
 {
     class AdminController{
-        private Form1 main;
+        
         private List<DTOProducto> productos;
         private DAOProducto daoProducto;
         private List<object> products;
@@ -38,10 +39,12 @@ namespace Inventario.Controllers
             foreach (DTOProducto producto in productos){
                 productosVector[0] = Convert.ToString(producto.NumSerie);
                 productosVector[1] = producto.NombreProducto;
+                Console.WriteLine(productosVector[1]);
                 productosVector[2] = producto.Proveedor;
                 productosVector[3] = producto.Categoria;
                 productosVector[4] = Convert.ToString(producto.PrecioUnidad);
                 productosVector[5] = Convert.ToString(producto.CantidadExistente);
+                listaProductos.Add(productosVector);
                 
             }
             return listaProductos;
