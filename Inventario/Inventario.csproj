@@ -83,6 +83,12 @@
     <Compile Include="Views\ucEditar.Designer.cs">
       <DependentUpon>ucEditar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ucVender.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ucVender.Designer.cs">
+      <DependentUpon>ucVender.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ucViewAdmin.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -116,6 +122,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ucLogin.resx">
       <DependentUpon>ucLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ucVender.resx">
+      <DependentUpon>ucVender.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ucViewAdmin.resx">
       <DependentUpon>ucViewAdmin.cs</DependentUpon>
