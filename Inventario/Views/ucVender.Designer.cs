@@ -29,27 +29,27 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lblNumSerie = new System.Windows.Forms.Label();
-            this.lblNombre = new System.Windows.Forms.Label();
-            this.lblCategoria = new System.Windows.Forms.Label();
+            this.txtPrecio = new System.Windows.Forms.TextBox();
+            this.txtCategoria = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtNumSerie = new System.Windows.Forms.TextBox();
             this.lblPrecio = new System.Windows.Forms.Label();
-            this.lblCedula = new System.Windows.Forms.Label();
-            this.lblNombres = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtCedula = new System.Windows.Forms.TextBox();
-            this.txtNombreCliente = new System.Windows.Forms.TextBox();
+            this.lblCategoria = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.lblNumSerie = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtApellidos = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtNombreCliente = new System.Windows.Forms.TextBox();
+            this.txtCedula = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lblNombres = new System.Windows.Forms.Label();
+            this.lblCedula = new System.Windows.Forms.Label();
+            this.txtCantidad = new System.Windows.Forms.TextBox();
             this.lblCantidad = new System.Windows.Forms.Label();
             this.lblTotalPagar = new System.Windows.Forms.Label();
             this.txtTotalPagar = new System.Windows.Forms.TextBox();
             this.btnVender = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.txtNumSerie = new System.Windows.Forms.TextBox();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.txtPrecio = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -57,7 +57,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txtPrecio);
-            this.groupBox1.Controls.Add(this.textBox8);
+            this.groupBox1.Controls.Add(this.txtCategoria);
             this.groupBox1.Controls.Add(this.txtNombre);
             this.groupBox1.Controls.Add(this.txtNumSerie);
             this.groupBox1.Controls.Add(this.lblPrecio);
@@ -70,6 +70,75 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Producto";
+            // 
+            // txtPrecio
+            // 
+            this.txtPrecio.Location = new System.Drawing.Point(113, 130);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.ReadOnly = true;
+            this.txtPrecio.Size = new System.Drawing.Size(100, 20);
+            this.txtPrecio.TabIndex = 7;
+            // 
+            // txtCategoria
+            // 
+            this.txtCategoria.Location = new System.Drawing.Point(113, 99);
+            this.txtCategoria.Name = "txtCategoria";
+            this.txtCategoria.ReadOnly = true;
+            this.txtCategoria.Size = new System.Drawing.Size(100, 20);
+            this.txtCategoria.TabIndex = 6;
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(113, 67);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.ReadOnly = true;
+            this.txtNombre.Size = new System.Drawing.Size(100, 20);
+            this.txtNombre.TabIndex = 5;
+            // 
+            // txtNumSerie
+            // 
+            this.txtNumSerie.Location = new System.Drawing.Point(113, 36);
+            this.txtNumSerie.Name = "txtNumSerie";
+            this.txtNumSerie.ReadOnly = true;
+            this.txtNumSerie.Size = new System.Drawing.Size(100, 20);
+            this.txtNumSerie.TabIndex = 4;
+            // 
+            // lblPrecio
+            // 
+            this.lblPrecio.AutoSize = true;
+            this.lblPrecio.Location = new System.Drawing.Point(31, 133);
+            this.lblPrecio.Name = "lblPrecio";
+            this.lblPrecio.Size = new System.Drawing.Size(37, 13);
+            this.lblPrecio.TabIndex = 3;
+            this.lblPrecio.Text = "Precio";
+            this.lblPrecio.Click += new System.EventHandler(this.Label4_Click);
+            // 
+            // lblCategoria
+            // 
+            this.lblCategoria.AutoSize = true;
+            this.lblCategoria.Location = new System.Drawing.Point(31, 102);
+            this.lblCategoria.Name = "lblCategoria";
+            this.lblCategoria.Size = new System.Drawing.Size(52, 13);
+            this.lblCategoria.TabIndex = 2;
+            this.lblCategoria.Text = "Categoria";
+            // 
+            // lblNombre
+            // 
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Location = new System.Drawing.Point(31, 67);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(44, 13);
+            this.lblNombre.TabIndex = 1;
+            this.lblNombre.Text = "Nombre";
+            // 
+            // lblNumSerie
+            // 
+            this.lblNumSerie.AutoSize = true;
+            this.lblNumSerie.Location = new System.Drawing.Point(31, 36);
+            this.lblNumSerie.Name = "lblNumSerie";
+            this.lblNumSerie.Size = new System.Drawing.Size(59, 13);
+            this.lblNumSerie.TabIndex = 0;
+            this.lblNumSerie.Text = "Num. Serie";
             // 
             // groupBox2
             // 
@@ -86,60 +155,27 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Cliente";
             // 
-            // lblNumSerie
+            // txtApellidos
             // 
-            this.lblNumSerie.AutoSize = true;
-            this.lblNumSerie.Location = new System.Drawing.Point(31, 36);
-            this.lblNumSerie.Name = "lblNumSerie";
-            this.lblNumSerie.Size = new System.Drawing.Size(59, 13);
-            this.lblNumSerie.TabIndex = 0;
-            this.lblNumSerie.Text = "Num. Serie";
+            this.txtApellidos.Location = new System.Drawing.Point(120, 102);
+            this.txtApellidos.Name = "txtApellidos";
+            this.txtApellidos.Size = new System.Drawing.Size(100, 20);
+            this.txtApellidos.TabIndex = 5;
             // 
-            // lblNombre
+            // txtNombreCliente
             // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(31, 67);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(44, 13);
-            this.lblNombre.TabIndex = 1;
-            this.lblNombre.Text = "Nombre";
+            this.txtNombreCliente.Location = new System.Drawing.Point(120, 67);
+            this.txtNombreCliente.Name = "txtNombreCliente";
+            this.txtNombreCliente.Size = new System.Drawing.Size(100, 20);
+            this.txtNombreCliente.TabIndex = 4;
             // 
-            // lblCategoria
+            // txtCedula
             // 
-            this.lblCategoria.AutoSize = true;
-            this.lblCategoria.Location = new System.Drawing.Point(31, 102);
-            this.lblCategoria.Name = "lblCategoria";
-            this.lblCategoria.Size = new System.Drawing.Size(52, 13);
-            this.lblCategoria.TabIndex = 2;
-            this.lblCategoria.Text = "Categoria";
-            // 
-            // lblPrecio
-            // 
-            this.lblPrecio.AutoSize = true;
-            this.lblPrecio.Location = new System.Drawing.Point(31, 133);
-            this.lblPrecio.Name = "lblPrecio";
-            this.lblPrecio.Size = new System.Drawing.Size(37, 13);
-            this.lblPrecio.TabIndex = 3;
-            this.lblPrecio.Text = "Precio";
-            this.lblPrecio.Click += new System.EventHandler(this.Label4_Click);
-            // 
-            // lblCedula
-            // 
-            this.lblCedula.AutoSize = true;
-            this.lblCedula.Location = new System.Drawing.Point(47, 43);
-            this.lblCedula.Name = "lblCedula";
-            this.lblCedula.Size = new System.Drawing.Size(40, 13);
-            this.lblCedula.TabIndex = 0;
-            this.lblCedula.Text = "Cedula";
-            // 
-            // lblNombres
-            // 
-            this.lblNombres.AutoSize = true;
-            this.lblNombres.Location = new System.Drawing.Point(47, 74);
-            this.lblNombres.Name = "lblNombres";
-            this.lblNombres.Size = new System.Drawing.Size(44, 13);
-            this.lblNombres.TabIndex = 1;
-            this.lblNombres.Text = "Nombre";
+            this.txtCedula.Location = new System.Drawing.Point(120, 35);
+            this.txtCedula.Name = "txtCedula";
+            this.txtCedula.Size = new System.Drawing.Size(100, 20);
+            this.txtCedula.TabIndex = 3;
+            this.txtCedula.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
             // label7
             // 
@@ -150,34 +186,31 @@
             this.label7.TabIndex = 2;
             this.label7.Text = "Apellidos";
             // 
-            // txtCedula
+            // lblNombres
             // 
-            this.txtCedula.Location = new System.Drawing.Point(120, 35);
-            this.txtCedula.Name = "txtCedula";
-            this.txtCedula.Size = new System.Drawing.Size(100, 20);
-            this.txtCedula.TabIndex = 3;
-            this.txtCedula.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
+            this.lblNombres.AutoSize = true;
+            this.lblNombres.Location = new System.Drawing.Point(47, 74);
+            this.lblNombres.Name = "lblNombres";
+            this.lblNombres.Size = new System.Drawing.Size(44, 13);
+            this.lblNombres.TabIndex = 1;
+            this.lblNombres.Text = "Nombre";
             // 
-            // txtNombreCliente
+            // lblCedula
             // 
-            this.txtNombreCliente.Location = new System.Drawing.Point(120, 67);
-            this.txtNombreCliente.Name = "txtNombreCliente";
-            this.txtNombreCliente.Size = new System.Drawing.Size(100, 20);
-            this.txtNombreCliente.TabIndex = 4;
+            this.lblCedula.AutoSize = true;
+            this.lblCedula.Location = new System.Drawing.Point(47, 43);
+            this.lblCedula.Name = "lblCedula";
+            this.lblCedula.Size = new System.Drawing.Size(40, 13);
+            this.lblCedula.TabIndex = 0;
+            this.lblCedula.Text = "Cedula";
             // 
-            // txtApellidos
+            // txtCantidad
             // 
-            this.txtApellidos.Location = new System.Drawing.Point(120, 102);
-            this.txtApellidos.Name = "txtApellidos";
-            this.txtApellidos.Size = new System.Drawing.Size(100, 20);
-            this.txtApellidos.TabIndex = 5;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(161, 253);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 2;
+            this.txtCantidad.Location = new System.Drawing.Point(161, 253);
+            this.txtCantidad.Name = "txtCantidad";
+            this.txtCantidad.Size = new System.Drawing.Size(100, 20);
+            this.txtCantidad.TabIndex = 2;
+            this.txtCantidad.TextChanged += new System.EventHandler(this.TxtCantidad_TextChanged);
             // 
             // lblCantidad
             // 
@@ -213,6 +246,7 @@
             this.btnVender.TabIndex = 6;
             this.btnVender.Text = "Vender";
             this.btnVender.UseVisualStyleBackColor = true;
+            this.btnVender.Click += new System.EventHandler(this.BtnVender_Click);
             // 
             // btnCancelar
             // 
@@ -224,38 +258,6 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
-            // txtNumSerie
-            // 
-            this.txtNumSerie.Location = new System.Drawing.Point(113, 36);
-            this.txtNumSerie.Name = "txtNumSerie";
-            this.txtNumSerie.ReadOnly = true;
-            this.txtNumSerie.Size = new System.Drawing.Size(100, 20);
-            this.txtNumSerie.TabIndex = 4;
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Location = new System.Drawing.Point(113, 67);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.ReadOnly = true;
-            this.txtNombre.Size = new System.Drawing.Size(100, 20);
-            this.txtNombre.TabIndex = 5;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(113, 99);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.ReadOnly = true;
-            this.textBox8.Size = new System.Drawing.Size(100, 20);
-            this.textBox8.TabIndex = 6;
-            // 
-            // txtPrecio
-            // 
-            this.txtPrecio.Location = new System.Drawing.Point(113, 130);
-            this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.ReadOnly = true;
-            this.txtPrecio.Size = new System.Drawing.Size(100, 20);
-            this.txtPrecio.TabIndex = 7;
-            // 
             // ucVender
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -265,11 +267,12 @@
             this.Controls.Add(this.txtTotalPagar);
             this.Controls.Add(this.lblTotalPagar);
             this.Controls.Add(this.lblCantidad);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtCantidad);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "ucVender";
             this.Size = new System.Drawing.Size(690, 405);
+            this.Load += new System.EventHandler(this.UcVender_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -283,7 +286,7 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtPrecio;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txtCategoria;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtNumSerie;
         private System.Windows.Forms.Label lblPrecio;
@@ -297,7 +300,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblNombres;
         private System.Windows.Forms.Label lblCedula;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtCantidad;
         private System.Windows.Forms.Label lblCantidad;
         private System.Windows.Forms.Label lblTotalPagar;
         private System.Windows.Forms.TextBox txtTotalPagar;

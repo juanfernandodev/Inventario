@@ -72,6 +72,16 @@ namespace Inventario.Models.DAO
             }
             return null;
         }
+        /* Metodo que busca en la lista de productos si se 
+          encuentra un producto con el numero de serie pasado en parametro */
+        public DTOProducto BuscarProductoNumSerie(int numSerie){
+            foreach (DTOProducto producto in productos){
+                if (producto.NumSerie==numSerie){
+                    return producto;
+                }
+            }
+            return null;
+        }
 
         /* Devuelve la lista de productos local */
         public List<DTOProducto> darProductos()

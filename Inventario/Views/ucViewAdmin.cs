@@ -22,10 +22,26 @@ namespace Inventario.Views
             
           
         }
+        /*Boton buscar
+         */
+        private void Button1_Click(object sender, EventArgs e){
+            string cadena = "Prodcuto no ha sido encontrado";
+            if (int.Parse(txtBusqueda.Text)>0){
+                string[] producto = this.main.BuscarProductoNumSerie(int.Parse(txtBusqueda.Text));
+                if (producto.Any()){
+                    cadena = "El producto ha sido encontrado";
+                    this.dgvProductos.Rows.Clear();
+                    this.dgvProductos.Refresh();
+                    this.dgvProductos.Rows.Add(producto);
+                }else{
+                    cadena = "No existe un producto con ese número de serie";
+                }
+            }
+            else{
+                cadena = "Ingresa valores que sean validos, por favor";
+            }
 
-        private void Button1_Click(object sender, EventArgs e)
-        {
-
+            MessageBox.Show(cadena);
         }
 
         private void Label1_Click(object sender, EventArgs e)
@@ -66,15 +82,12 @@ namespace Inventario.Views
 
 
             if (this.infoProducto.Any()) {
-                this.main.EnviarInfoProducto(this.infoProducto);
+                this.main.EnviarInfoProducto(this.infoProducto,0); 
             }
             else
             {
-                MessageBox.Show("Seleccione un producto para editar!");
+                MessageBox.Show("¡Seleccione un producto para editar!");
             }
-               
-            
-            
         }
 
         private void DgvProductos_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
@@ -84,7 +97,14 @@ namespace Inventario.Views
 
         private void BtnVender_Click(object sender, EventArgs e)
         {
-            this.main.AbrirVistaVenderProducto();
+            if (this.infoProducto.Any())
+            {
+                this.main.EnviarInfoProducto(this.infoProducto, 1);
+            }
+            else
+            {
+                MessageBox.Show("¡Seleccione un producto para Vender!");
+            }
         }
 
         private void BtnEliminar_Click_1(object sender, EventArgs e)

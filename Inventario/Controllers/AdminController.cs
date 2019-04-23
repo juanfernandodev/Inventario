@@ -31,34 +31,28 @@ namespace Inventario.Controllers
         }
 
         public List<string []> ListarProductosTabla(){
-            productos = daoProducto.darProductos();
-            
+            productos = daoProducto.darProductos();   
             List<string[]> listaProductos = new List<string[]>();
-            string[] productosVector;
             foreach (DTOProducto producto in productos){
-               /* productosVector = new string[6];
-                productosVector[0] = Convert.ToString(producto.NumSerie);
-                productosVector[1] = producto.NombreProducto;
-                productosVector[2] = producto.Proveedor;
-                productosVector[3] = producto.Categoria;
-                productosVector[4] = Convert.ToString(producto.PrecioUnidad);
-                productosVector[5] = Convert.ToString(producto.CantidadExistente);
-                */
                 listaProductos.Add(new string[] { Convert.ToString(producto.NumSerie), producto.NombreProducto, producto.Proveedor, producto.Categoria,
                                                     Convert.ToString(producto.PrecioUnidad), Convert.ToString(producto.CantidadExistente)});
-               // listaProductos.Add(productosVector);  
             }
             return listaProductos;
         }
         public Boolean actualizar(string [] infoProdAct){
-
             return this.daoProducto.ActualizarProducto(Convert.ToInt32(infoProdAct[0]), infoProdAct[1], infoProdAct[2], infoProdAct[3], Convert.ToInt32(infoProdAct[4]), Convert.ToInt32(infoProdAct[5]));
-          
-            
         }
 
-        public void buscar(){
-
+        public string[] buscar(int nombre){
+            string[] producto = new string[6];
+            DTOProducto product = this.daoProducto.BuscarProductoNumSerie(nombre);
+            producto[0] = product.NumSerie.ToString();
+            producto[1] = product.NombreProducto;
+            producto[2] = product.Proveedor;
+            producto[3] = product.Categoria;
+            producto[4] = product.PrecioUnidad.ToString();
+            producto[5] = product.CantidadExistente.ToString();
+            return producto;
         }
 
 

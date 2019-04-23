@@ -51,6 +51,9 @@ namespace Inventario
             return this.adminController.agregarProducto(nombre,proveedor,categoria,precio,cantidad);
 
         }
+        internal string[] BuscarProductoNumSerie(int v){
+            return this.adminController.buscar(v);
+        }
 
         internal void VolverToInventario()
         {
@@ -82,11 +85,20 @@ namespace Inventario
             this.Controls.Add(this.ucViewAdmin);
         }
 
-        internal void EnviarInfoProducto(string[] infoProducto)
+        internal void EnviarInfoProducto(string[] infoProducto, int opcion)
         {
-            
-            this.AbrirVistaEditarProducto(infoProducto);
+            switch (opcion){
+                case 0:
+                    this.AbrirVistaEditarProducto(infoProducto);
+                    break;
+                case 1:
+                    this.AbrirVistaVenderProducto(infoProducto);
+                    break;
 
+                default:
+                    MessageBox.Show("Han ocurrido un error, por favor revisar");
+                    break;  
+            }
         }
 
         public Boolean EliminarProducto(int numeroSerie)
@@ -101,10 +113,10 @@ namespace Inventario
             this.Controls.Add(this.ucAgregarProducto);
         }
 
-        internal void AbrirVistaVenderProducto()
+        internal void AbrirVistaVenderProducto(string [] infoProducto)
         {
             this.Controls.Clear();
-            this.ucVender = new ucVender(this);
+            this.ucVender = new ucVender(this,infoProducto);
             this.Controls.Add(this.ucVender);
         }
 

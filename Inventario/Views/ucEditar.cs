@@ -47,8 +47,7 @@ namespace Inventario.Views
         {
             this.txtNombre.Text = this.infoProducto[1];
             this.txtProveedor.Text = this.infoProducto[2];
-            
-            this.cmbCategoria.SelectedValue = this.infoProducto[3];
+            this.cmbCategoria.SelectedItem = this.infoProducto[3];
             this.txtPrecio.Text = this.infoProducto[4];
             this.txtExistencia.Text = this.infoProducto[5];
 
@@ -64,13 +63,14 @@ namespace Inventario.Views
         {
             string cadena = "No se ha podido actualizar el producto";
 
-            if (!this.txtNombre.Text.Equals("") && !this.txtProveedor.Text.Equals("") //&& this.cmbCategoria.SelectedIndex != -1
+            if (!this.txtNombre.Text.Equals("") && !this.txtProveedor.Text.Equals("") && this.cmbCategoria.SelectedIndex != -1
                    && !this.txtPrecio.Text.Equals("") && !this.txtExistencia.Text.Equals(""))
             {
                 string[] infoProdActualizados = {this.infoProducto[0], this.txtNombre.Text, this.txtProveedor.Text, this.cmbCategoria.SelectedItem.ToString(), this.txtPrecio.Text, this.txtExistencia.Text };
 
                 if (this.main.EditarProducto(infoProdActualizados)) {
                     cadena = "¡Producto ha sido actualizado con exito!";
+                    this.main.AbrirVistaAdmin("","");
                 } 
                 
             }
