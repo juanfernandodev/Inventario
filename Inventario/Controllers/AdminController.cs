@@ -49,18 +49,11 @@ namespace Inventario.Controllers
             }
             return listaProductos;
         }
-        public string[] actualizar(string nombre){
-            DTOProducto dto = daoProducto.BuscarProductoNombre(nombre);
-            string[] producto =
-            {
-                dto.NumSerie.ToString(),
-                dto.NombreProducto,
-                dto.Proveedor,
-                dto.Categoria,
-                dto.PrecioUnidad.ToString(),
-                dto.CantidadExistente.ToString()
-            };
-            return producto;
+        public Boolean actualizar(string [] infoProdAct){
+
+            return this.daoProducto.ActualizarProducto(Convert.ToInt32(infoProdAct[0]), infoProdAct[1], infoProdAct[2], infoProdAct[3], Convert.ToInt32(infoProdAct[4]), Convert.ToInt32(infoProdAct[5]));
+          
+            
         }
 
         public void buscar(){

@@ -22,6 +22,7 @@ namespace Inventario
         private ucAgregarProducto ucAgregarProducto;
         private ucEditar ucEditarProducto;
         private ucVender ucVender;
+        private string[] infoProducto;
 
         public Form1()
         {
@@ -30,6 +31,7 @@ namespace Inventario
             this.Controls.Add(ucLogin);
             controller = new Controllers.LoginController(this);
             adminController = new AdminController();
+            
 
         }
 
@@ -56,8 +58,8 @@ namespace Inventario
             this.Controls.Add(this.ucViewAdmin);
         }
 
-        internal string [] EditarProducto(string nombre){
-            return this.adminController.actualizar(nombre);
+        internal Boolean EditarProducto(string [] infoProdAct){
+             return this.adminController.actualizar(infoProdAct);
         }
 
         public void AbrirVistaAdmin(string nombre, string apellido)
@@ -80,6 +82,13 @@ namespace Inventario
             this.Controls.Add(this.ucViewAdmin);
         }
 
+        internal void EnviarInfoProducto(string[] infoProducto)
+        {
+            
+            this.AbrirVistaEditarProducto(infoProducto);
+
+        }
+
         public void AbrirVistaAgregarProducto()
         {
             this.Controls.Clear();
@@ -99,10 +108,10 @@ namespace Inventario
             this.Close();
         }
 
-        internal void AbrirVistaEditarProducto(string nombre)
+        internal void AbrirVistaEditarProducto(string [] infoProducto)
         {
             this.Controls.Clear(); //Limpia el contenidor hijo que tiene.
-            this.ucEditarProducto = new ucEditar(this,nombre); //Instancia el nuevo user control
+            this.ucEditarProducto = new ucEditar(this, infoProducto); //Instancia el nuevo user control
             this.Controls.Add(this.ucEditarProducto); //Posicionar el hijo en el padre
         }
 

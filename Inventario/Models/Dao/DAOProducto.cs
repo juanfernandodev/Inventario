@@ -22,10 +22,10 @@ namespace Inventario.Models.DAO
         public DAOProducto()
         {
             this.database = null;
-          
+
             this.reader = null;
             this.declaracion = "";
-         
+
         }
 
 
@@ -49,7 +49,7 @@ namespace Inventario.Models.DAO
             this.ConectarBD();
             declaracion = "Select * FROM producto";
             this.reader = this.database.consultar(declaracion);
-            
+
             while (this.reader.Read())
             {
                 productos.Add(new DTOProducto(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetInt32(4), reader.GetInt32(5)));
@@ -61,8 +61,10 @@ namespace Inventario.Models.DAO
 
         /* Metodo que busca en la lista de productos si se 
            encuentra un producto con el nombre pasado en parametro */
-        public DTOProducto BuscarProductoNombre(string nombre){
-            foreach (DTOProducto producto in productos){
+        public DTOProducto BuscarProductoNombre(string nombre)
+        {
+            foreach (DTOProducto producto in productos)
+            {
                 if (producto.NombreProducto.Equals(nombre))
                 {
                     return producto;
@@ -70,22 +72,25 @@ namespace Inventario.Models.DAO
             }
             return null;
         }
-        
+
         /* Devuelve la lista de productos local */
-        public List<DTOProducto> darProductos(){
-                this.actualizarProductosLocalmente();
-                return productos;
+        public List<DTOProducto> darProductos()
+        {
+            this.actualizarProductosLocalmente();
+            return productos;
         }
 
         /* Crea producto nuevo */
-        public Boolean CrearProducto(string nombreProducto, string proveedor, string categoria, int precioUnidad, int cantidadExistente){
-            try { 
-            this.ConectarBD();
-            declaracion = "INSERT INTO Producto(nombreproducto, proveedor, categoria, preciounidad, cantidadexistente) VALUES" +
-                "('"+nombreProducto+"','"+proveedor+"','"+categoria+"',"+precioUnidad+","+cantidadExistente+");";
+        public Boolean CrearProducto(string nombreProducto, string proveedor, string categoria, int precioUnidad, int cantidadExistente)
+        {
+            try
+            {
+                this.ConectarBD();
+                declaracion = "INSERT INTO Producto(nombreproducto, proveedor, categoria, preciounidad, cantidadexistente) VALUES" +
+                    "('" + nombreProducto + "','" + proveedor + "','" + categoria + "'," + precioUnidad + "," + cantidadExistente + ");";
                 Console.WriteLine(declaracion);
-            this.database.alterar(declaracion); //Inserta el producto en la BD
-            this.database.CerrarConexion();
+                this.database.alterar(declaracion); //Inserta el producto en la BD
+                this.database.CerrarConexion();
 
                 if (this.productos == null)
                 {
@@ -95,32 +100,45 @@ namespace Inventario.Models.DAO
 
                 return true;
             }
-            catch (MySqlException ex){
-                 MessageBox.Show(ex.ToString());
-                
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+
             }
 
-            return false;       
+            return false;
         }
 
         /* Elimina un producto */
-        public void EliminarProducto(int numserie)
+        public Boolean EliminarProducto(int numserie)
         {
-            this.conexionbd = this.ConectarBD().ConexionBd;
+            this.ConectarBD();
             declaracion = "DELETE FROM Producto WHERE num_serie = " + numserie;
-            this.database.alterar(declaracion); //Elimina de la BD
-            this.actualizarProductosLocalmente(); //Actualiza la lista local
+            if (this.database.alterar(declaracion))
+            {
+                //Elimina de la BD
+                this.database.CerrarConexion();
+                this.actualizarProductosLocalmente(); //Actualiza la lista local
+                return true;
+            }
+
+            return false;
         }
 
         /* Actualizar producto */
-        public void ActualizarProducto(int numeroserie, string nombreproducto, string proveedor, string categoria, int preciounidad, int cantidadexistente)
+        public Boolean ActualizarProducto(int numeroserie, string nombreproducto, string proveedor, string categoria, int preciounidad, int cantidadexistente)
         {
             this.ConectarBD();
             declaracion = "UPDATE Producto SET nombreproducto=" + nombreproducto + ", proveedor=" + proveedor + ", categoria=" + categoria + ", " +
                 "preciounidad=" + preciounidad + ", cantidadexistente" + cantidadexistente + ";";
-            this.database.alterar(declaracion); //Actualiza la DB
-            this.database.CerrarConexion();
-            this.actualizarProductosLocalmente(); //Actualiza localmente
+            if (this.database.alterar(declaracion))
+            {
+                this.database.CerrarConexion();
+                this.actualizarProductosLocalmente(); //Actualiza localmente
+                return true;
+
+            }
+            return false;
         }
     }
 }

@@ -13,12 +13,12 @@ namespace Inventario.Views
     public partial class ucEditar : UserControl
     {
         private Form1 main;
-        private string nombre;
-        public ucEditar(Form1 main,string nombre)
+        private string[] infoProducto;
+        public ucEditar(Form1 main, string [] infoProducto)
         {
             this.main = main;
-            this.nombre = nombre;
             InitializeComponent();
+            this.infoProducto = infoProducto;
            
             this.cmbCategoria.Items.Add("Bebidas");
             this.cmbCategoria.Items.Add("Carnes");
@@ -45,6 +45,12 @@ namespace Inventario.Views
 
         private void UcEditar_Load(object sender, EventArgs e)
         {
+            this.txtNombre.Text = this.infoProducto[1];
+            this.txtProveedor.Text = this.infoProducto[2];
+            
+            this.cmbCategoria.SelectedValue = this.infoProducto[3];
+            this.txtPrecio.Text = this.infoProducto[4];
+            this.txtExistencia.Text = this.infoProducto[5];
 
         }
 
@@ -56,15 +62,16 @@ namespace Inventario.Views
         private void BtnAgregarProducto_Click(object sender, EventArgs e)
         {
             string cadena = "No se ha podido actualizar el producto";
-            if (this.nombre!=""){
-                string[] producto = this.main.EditarProducto(this.nombre); //Revisar
-                if (producto.Length == 0){
-                    txtNombre.Text = producto[1];
-                    txtProveedor.Text = producto[2];
-                    txtPrecio.Text = producto[4];
-                    txtExistencia.Text = producto[5];
+
+            if (!this.txtNombre.Text.Equals("") && !this.txtProveedor.Text.Equals("") && this.cmbCategoria.SelectedIndex == 0
+                   && this.txtPrecio.Text.Equals("") && this.txtExistencia.Text.Equals(""))
+            {
+                string[] infoProdActualizados = { this.txtNombre.Text, this.txtProveedor.Text, this.cmbCategoria.SelectedText, this.txtPrecio.Text, this.txtExistencia.Text };
+
+                if (this.main.EditarProducto(infoProdActualizados)) {
                     cadena = "¡Producto ha sido actualizado con exito!";
-                }
+                } 
+                
             }
             MessageBox.Show(cadena);
         }

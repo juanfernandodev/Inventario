@@ -13,7 +13,7 @@ namespace Inventario.Views
     public partial class ucViewAdmin : UserControl
     {
         private Form1 main;
-        private string nombreCelda="";
+        private string[] infoProducto = new string [6];
         public ucViewAdmin(Form1 main)
         {
             this.main = main;
@@ -46,7 +46,13 @@ namespace Inventario.Views
         }
 
         private void DgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e){
-            this.nombreCelda = this.dgvProductos.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
+            this.infoProducto[0] = this.dgvProductos.Rows[e.RowIndex].Cells["Numero_Serie"].Value.ToString();
+            this.infoProducto[1] = this.dgvProductos.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
+            this.infoProducto[2] = this.dgvProductos.Rows[e.RowIndex].Cells["Proveedor"].Value.ToString();
+            this.infoProducto[3] = this.dgvProductos.Rows[e.RowIndex].Cells["Categoria"].Value.ToString();
+            this.infoProducto[4] = this.dgvProductos.Rows[e.RowIndex].Cells["Precio"].Value.ToString();
+            this.infoProducto[5] = this.dgvProductos.Rows[e.RowIndex].Cells["CantidadExistencia"].Value.ToString();
+             
         }
 
         private void BtnAgrearProducto_Click(object sender, EventArgs e)
@@ -56,29 +62,33 @@ namespace Inventario.Views
 
         private void Button1_Click_1(object sender, EventArgs e)
         {
-            if (this.nombreCelda!=""){
-              /*  string cadena = "No se ha podido actualizar el producto";
-                if (this.nombre != "")
-                {
-                    string[] producto = this.main.BuscarProducto();
-                    if (producto.Length == 0)
-                    {
-                        txtNombre.Text = producto[1];
-                        txtProveedor.Text = producto[2];
-                        txtPrecio.Text = producto[4];
-                        txtExistencia.Text = producto[5];
-                        cadena = "¡Producto ha sido actualizado con exito!";
-                    }
-                }
 
-                this.main.AbrirVistaEditarProducto(this.nombreCelda);
-                MessageBox.Show(cadena);*/
+
+            if (this.infoProducto.Any()) {
+                this.main.EnviarInfoProducto(this.infoProducto);
             }
             else
             {
-                MessageBox.Show("Seleccione una fila para poder editar");
-                this.main.AbrirVistaAdmin("","");
+                MessageBox.Show("Seleccione un producto para editar!");
             }
+                /*  string cadena = "No se ha podido actualizar el producto";
+                  if (this.nombre != "")
+                  {
+                      string[] producto = this.main.BuscarProducto();
+                      if (producto.Length == 0)
+                      {
+                          txtNombre.Text = producto[1];
+                          txtProveedor.Text = producto[2];
+                          txtPrecio.Text = producto[4];
+                          txtExistencia.Text = producto[5];
+                          cadena = "¡Producto ha sido actualizado con exito!";
+                      }
+                  }
+
+                  this.main.AbrirVistaEditarProducto(this.nombreCelda);
+                  */
+            
+            
         }
 
         private void DgvProductos_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
@@ -90,5 +100,6 @@ namespace Inventario.Views
         {
             this.main.AbrirVistaVenderProducto();
         }
-    }
 }
+    }
+
