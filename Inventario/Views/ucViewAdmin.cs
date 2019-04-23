@@ -60,6 +60,7 @@ namespace Inventario.Views
             this.main.AbrirVistaAgregarProducto();
         }
 
+        //Boton editar producto
         private void Button1_Click_1(object sender, EventArgs e)
         {
 
@@ -88,7 +89,22 @@ namespace Inventario.Views
 
         private void BtnEliminar_Click_1(object sender, EventArgs e)
         {
-
+            if (this.infoProducto.Any())
+            {
+                if (this.main.EliminarProducto(Convert.ToInt32(this.infoProducto[0])))
+                {
+                    MessageBox.Show("Producto Eliminado con Éxito!");
+                }
+                else
+                {
+                    MessageBox.Show("No se ha podido eliminar el producto");
+                }
+                
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un producto para Eliminar!");
+            }
         }
     }
     }

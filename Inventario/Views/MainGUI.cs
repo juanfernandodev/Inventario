@@ -89,6 +89,11 @@ namespace Inventario
 
         }
 
+        public Boolean EliminarProducto(int numeroSerie)
+        {
+            return this.adminController.EliminarProducto(numeroSerie);
+        }
+
         public void AbrirVistaAgregarProducto()
         {
             this.Controls.Clear();

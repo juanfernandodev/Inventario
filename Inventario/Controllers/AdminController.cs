@@ -25,7 +25,8 @@ namespace Inventario.Controllers
             return daoProducto.CrearProducto(nombre, proveedor, categoria, precioUnidad, cantidadExistente);
         }
 
-        public void eliminarProducto(){
+        public Boolean EliminarProducto(int numeroserie){
+           return this.daoProducto.EliminarProducto(numeroserie);
 
         }
 
