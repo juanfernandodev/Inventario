@@ -129,11 +129,12 @@ namespace Inventario.Models.DAO
         public Boolean ActualizarProducto(int numeroserie, string nombreproducto, string proveedor, string categoria, int preciounidad, int cantidadexistente)
         {
             this.ConectarBD();
-            declaracion = "UPDATE Producto SET nombreproducto=" + nombreproducto + ", proveedor=" + proveedor + ", categoria=" + categoria + ", " +
-                "preciounidad=" + preciounidad + ", cantidadexistente" + cantidadexistente + ";";
+            
+            declaracion = "UPDATE Producto SET nombreproducto='" + nombreproducto + "', proveedor='" + proveedor + "', categoria='" + categoria + "', " +
+                "preciounidad=" + preciounidad + ", cantidadexistente=" + cantidadexistente + " WHERE num_serie = "+numeroserie+";";
             if (this.database.alterar(declaracion))
             {
-                this.database.CerrarConexion();
+                this.database.CerrarConexion(); 
                 this.actualizarProductosLocalmente(); //Actualiza localmente
                 return true;
 

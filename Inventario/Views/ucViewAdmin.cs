@@ -71,22 +71,7 @@ namespace Inventario.Views
             {
                 MessageBox.Show("Seleccione un producto para editar!");
             }
-                /*  string cadena = "No se ha podido actualizar el producto";
-                  if (this.nombre != "")
-                  {
-                      string[] producto = this.main.BuscarProducto();
-                      if (producto.Length == 0)
-                      {
-                          txtNombre.Text = producto[1];
-                          txtProveedor.Text = producto[2];
-                          txtPrecio.Text = producto[4];
-                          txtExistencia.Text = producto[5];
-                          cadena = "¡Producto ha sido actualizado con exito!";
-                      }
-                  }
-
-                  this.main.AbrirVistaEditarProducto(this.nombreCelda);
-                  */
+               
             
             
         }
@@ -100,6 +85,11 @@ namespace Inventario.Views
         {
             this.main.AbrirVistaVenderProducto();
         }
-}
+
+        private void BtnEliminar_Click_1(object sender, EventArgs e)
+        {
+
+        }
+    }
     }
 

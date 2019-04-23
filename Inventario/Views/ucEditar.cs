@@ -59,14 +59,15 @@ namespace Inventario.Views
 
         }
 
+        //boton se llama editar, en realidad
         private void BtnAgregarProducto_Click(object sender, EventArgs e)
         {
             string cadena = "No se ha podido actualizar el producto";
 
-            if (!this.txtNombre.Text.Equals("") && !this.txtProveedor.Text.Equals("") && this.cmbCategoria.SelectedIndex == 0
-                   && this.txtPrecio.Text.Equals("") && this.txtExistencia.Text.Equals(""))
+            if (!this.txtNombre.Text.Equals("") && !this.txtProveedor.Text.Equals("") //&& this.cmbCategoria.SelectedIndex != -1
+                   && !this.txtPrecio.Text.Equals("") && !this.txtExistencia.Text.Equals(""))
             {
-                string[] infoProdActualizados = { this.txtNombre.Text, this.txtProveedor.Text, this.cmbCategoria.SelectedText, this.txtPrecio.Text, this.txtExistencia.Text };
+                string[] infoProdActualizados = {this.infoProducto[0], this.txtNombre.Text, this.txtProveedor.Text, this.cmbCategoria.SelectedItem.ToString(), this.txtPrecio.Text, this.txtExistencia.Text };
 
                 if (this.main.EditarProducto(infoProdActualizados)) {
                     cadena = "¡Producto ha sido actualizado con exito!";
