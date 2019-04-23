@@ -42,9 +42,22 @@ namespace Inventario.Views
             if (this.main.AgregarProducto(txtNombre.Text, txtProveedor.Text, cmbCategoria.SelectedItem.ToString(), int.Parse(txtPrecio.Text), int.Parse(txtExistencia.Text)))
             {
                 cadena = "¡Producto ha sido agregado con exito!";
+                LimpiarCampos();
+
             }
 
             MessageBox.Show(cadena);
+
+        }
+        
+        private void LimpiarCampos()
+        {
+            this.txtExistencia.Clear();
+            this.txtNombre.Clear();
+            this.txtProveedor.Clear();
+            this.txtPrecio.Clear();
+            this.cmbCategoria.SelectedItem = null;
+
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)

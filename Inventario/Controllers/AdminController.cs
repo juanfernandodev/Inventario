@@ -33,15 +33,19 @@ namespace Inventario.Controllers
             productos = daoProducto.darProductos();
             
             List<string[]> listaProductos = new List<string[]>();
-            string [] productosVector = new string[6];
+            string[] productosVector;
             foreach (DTOProducto producto in productos){
+               /* productosVector = new string[6];
                 productosVector[0] = Convert.ToString(producto.NumSerie);
                 productosVector[1] = producto.NombreProducto;
                 productosVector[2] = producto.Proveedor;
                 productosVector[3] = producto.Categoria;
                 productosVector[4] = Convert.ToString(producto.PrecioUnidad);
                 productosVector[5] = Convert.ToString(producto.CantidadExistente);
-                listaProductos.Add(productosVector);  
+                */
+                listaProductos.Add(new string[] { Convert.ToString(producto.NumSerie), producto.NombreProducto, producto.Proveedor, producto.Categoria,
+                                                    Convert.ToString(producto.PrecioUnidad), Convert.ToString(producto.CantidadExistente)});
+               // listaProductos.Add(productosVector);  
             }
             return listaProductos;
         }

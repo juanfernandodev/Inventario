@@ -37,7 +37,6 @@ namespace Inventario.Views
             List<string [] > productos =  main.listarProductos(); // Carga los productos al DataGridView una lista de objetos
             foreach (string[] p in productos)
             {
-                Console.WriteLine(p[0]+" "+p[1]+" " + p[2] + " " + p[3] + " "+p[4] + " " + p[5] + " ");
                 this.dgvProductos.Rows.Add(p);
             }
         }
