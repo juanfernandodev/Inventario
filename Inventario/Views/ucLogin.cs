@@ -13,7 +13,7 @@ namespace Inventario.Views
     public partial class ucLogin : UserControl
     {
         private Form1 main;
-        
+
         public ucLogin(Form1 main)
         {
 
@@ -29,16 +29,31 @@ namespace Inventario.Views
 
         private void BtnIngresar_Click(object sender, EventArgs e)
         {
-            if (chkAdministrador.Checked && this.main.logear(txtCedula.Text, "Administrador", txtPassword.Text))
+            string cedula = txtCedula.Text;
+            string password = txtPassword.Text;
+            if(!cedula.Equals("") && !password.Equals(""))
             {
-                return;
-            }else if (this.main.logear(txtCedula.Text, "Cajero", txtPassword.Text))
+                if (chkAdministrador.Checked && this.main.logear(cedula, "Administrador", password))
+                {
+                    return;
+                }
+                else if (this.main.logear(cedula, "Cajero", password))
+                {
+                    return;
+                }
+            }
+            else
             {
+                MessageBox.Show("Debe ingresar minimo la Cedula y su Password.", "Advertencia...",MessageBoxButtons.OK,MessageBoxIcon.Error);
+               
                 return;
             }
+                MessageBox.Show("Credenciales Incorrectas. Vuelva pronto", "Advertencia...", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-          
-                MessageBox.Show("Credenciales Incorrectas. Vuelva pronto");
+            
+            this.txtCedula.Clear();
+            this.txtPassword.Clear();
+            this.chkAdministrador.Checked = false;
       
         }
 

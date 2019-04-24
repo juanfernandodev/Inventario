@@ -38,15 +38,25 @@ namespace Inventario.Views
 
         private void BtnVender_Click(object sender, EventArgs e)
         {
+            int cantidadSolicitada = int.Parse(this.txtCantidad.Text);
+            int cantidadExistente = int.Parse(this.infoproducto[5]);
+            string cedula = txtCedula.Text;
+            string nombreCliente = this.txtNombreCliente.Text;
+            string apellidoCliente = txtApellidos.Text;
             string cadena = "No se puede vender este producto";
-            if ((int.Parse(this.infoproducto[5])!=0) || int.Parse(this.txtCantidad.Text)>0){
-                if (int.Parse(this.txtCantidad.Text) <= int.Parse(this.infoproducto[5])){
-                    if (this.txtCedula.Text != "" && this.txtNombreCliente.Text != "" && txtApellidos.Text != ""){
-                        this.infoproducto[5] = (int.Parse(this.infoproducto[5]) - int.Parse(txtCantidad.Text)).ToString();
-                        if (this.main.EditarProducto(this.infoproducto)){
+
+            if (cantidadExistente != 0 || cantidadSolicitada > 0)
+            {
+                if (cantidadSolicitada <= cantidadExistente)
+                {
+                    if (cedula != "" && nombreCliente != "" && apellidoCliente != "")
+                    {
+                        infoproducto[5] = (cantidadExistente - cantidadSolicitada).ToString();
+                        if (main.EditarProducto(infoproducto))
+                        {
                             cadena = "¡Producto vendido con exito!";
                            
-                            this.main.AbrirVistaCajero("", "");
+                            main.AbrirVistaCajero("", "");
                         }
                     }else{
                         cadena = "Ingresa los datos del cliente por favor";
