@@ -30,6 +30,7 @@ namespace Inventario.Views
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucViewAdmin));
             this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
@@ -46,23 +47,23 @@ namespace Inventario.Views
             this.label2 = new System.Windows.Forms.Label();
             this.btnVender = new System.Windows.Forms.Button();
             this.Salir = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtBusqueda
             // 
-            this.txtBusqueda.Location = new System.Drawing.Point(384, 71);
-            this.txtBusqueda.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBusqueda.Location = new System.Drawing.Point(288, 58);
             this.txtBusqueda.Name = "txtBusqueda";
-            this.txtBusqueda.Size = new System.Drawing.Size(91, 22);
+            this.txtBusqueda.Size = new System.Drawing.Size(69, 20);
             this.txtBusqueda.TabIndex = 1;
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(484, 71);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscar.Location = new System.Drawing.Point(363, 58);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(100, 25);
+            this.btnBuscar.Size = new System.Drawing.Size(75, 20);
             this.btnBuscar.TabIndex = 2;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -79,11 +80,10 @@ namespace Inventario.Views
             this.Precio,
             this.CantidadExistencia});
             this.dgvProductos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.dgvProductos.Location = new System.Drawing.Point(19, 103);
-            this.dgvProductos.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvProductos.Location = new System.Drawing.Point(14, 84);
             this.dgvProductos.MultiSelect = false;
             this.dgvProductos.Name = "dgvProductos";
-            this.dgvProductos.Size = new System.Drawing.Size(857, 213);
+            this.dgvProductos.Size = new System.Drawing.Size(643, 173);
             this.dgvProductos.TabIndex = 3;
             this.dgvProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvProductos_CellContentClick);
             this.dgvProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvProductos_CellContentClick_1);
@@ -126,10 +126,9 @@ namespace Inventario.Views
             // 
             // btnAgrearProducto
             // 
-            this.btnAgrearProducto.Location = new System.Drawing.Point(19, 401);
-            this.btnAgrearProducto.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAgrearProducto.Location = new System.Drawing.Point(14, 326);
             this.btnAgrearProducto.Name = "btnAgrearProducto";
-            this.btnAgrearProducto.Size = new System.Drawing.Size(132, 28);
+            this.btnAgrearProducto.Size = new System.Drawing.Size(99, 23);
             this.btnAgrearProducto.TabIndex = 4;
             this.btnAgrearProducto.Text = "Agregar Producto";
             this.btnAgrearProducto.UseVisualStyleBackColor = true;
@@ -138,20 +137,18 @@ namespace Inventario.Views
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(392, 23);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(294, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 17);
+            this.label1.Size = new System.Drawing.Size(73, 13);
             this.label1.TabIndex = 5;
             this.label1.Text = "INVENTARIO";
             this.label1.Click += new System.EventHandler(this.Label1_Click);
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(323, 401);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEliminar.Location = new System.Drawing.Point(242, 326);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(132, 28);
+            this.btnEliminar.Size = new System.Drawing.Size(99, 23);
             this.btnEliminar.TabIndex = 6;
             this.btnEliminar.Text = "Eliminar Producto";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -159,10 +156,9 @@ namespace Inventario.Views
             // 
             // btnEditarProducto
             // 
-            this.btnEditarProducto.Location = new System.Drawing.Point(171, 401);
-            this.btnEditarProducto.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEditarProducto.Location = new System.Drawing.Point(128, 326);
             this.btnEditarProducto.Name = "btnEditarProducto";
-            this.btnEditarProducto.Size = new System.Drawing.Size(132, 28);
+            this.btnEditarProducto.Size = new System.Drawing.Size(99, 23);
             this.btnEditarProducto.TabIndex = 7;
             this.btnEditarProducto.Text = "Editar Producto";
             this.btnEditarProducto.UseVisualStyleBackColor = true;
@@ -171,19 +167,17 @@ namespace Inventario.Views
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 75);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(14, 61);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(364, 17);
+            this.label2.Size = new System.Drawing.Size(271, 13);
             this.label2.TabIndex = 8;
             this.label2.Text = "Busca rapidamente el producto por su Numero de Serie:";
             // 
             // btnVender
             // 
-            this.btnVender.Location = new System.Drawing.Point(744, 63);
-            this.btnVender.Margin = new System.Windows.Forms.Padding(4);
+            this.btnVender.Location = new System.Drawing.Point(558, 51);
             this.btnVender.Name = "btnVender";
-            this.btnVender.Size = new System.Drawing.Size(132, 28);
+            this.btnVender.Size = new System.Drawing.Size(99, 23);
             this.btnVender.TabIndex = 9;
             this.btnVender.Text = "Vender Producto";
             this.btnVender.UseVisualStyleBackColor = true;
@@ -191,19 +185,30 @@ namespace Inventario.Views
             // 
             // Salir
             // 
-            this.Salir.Location = new System.Drawing.Point(19, 4);
+            this.Salir.Location = new System.Drawing.Point(14, 3);
+            this.Salir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Salir.Name = "Salir";
-            this.Salir.Size = new System.Drawing.Size(144, 23);
+            this.Salir.Size = new System.Drawing.Size(108, 19);
             this.Salir.TabIndex = 10;
             this.Salir.Text = "Salir del Sistema";
             this.Salir.UseVisualStyleBackColor = true;
             this.Salir.Click += new System.EventHandler(this.Salir_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(434, 241);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(223, 187);
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            // 
             // ucViewAdmin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Controls.Add(this.Salir);
             this.Controls.Add(this.btnVender);
             this.Controls.Add(this.label2);
@@ -214,11 +219,12 @@ namespace Inventario.Views
             this.Controls.Add(this.dgvProductos);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtBusqueda);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Controls.Add(this.pictureBox1);
             this.Name = "ucViewAdmin";
-            this.Size = new System.Drawing.Size(893, 527);
+            this.Size = new System.Drawing.Size(670, 428);
             this.Load += new System.EventHandler(this.UcViewAdmin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -241,6 +247,7 @@ namespace Inventario.Views
         private Label label2;
         private Button btnVender;
         private Button Salir;
+        private PictureBox pictureBox1;
 
         public Button BtnAgrearProducto
         {

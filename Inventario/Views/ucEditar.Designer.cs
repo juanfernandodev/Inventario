@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucEditar));
             this.btnCancelar = new System.Windows.Forms.Button();
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
             this.txtPrecio = new System.Windows.Forms.TextBox();
@@ -41,11 +42,14 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.btnAgregarProducto = new System.Windows.Forms.Button();
             this.lblTitulo = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(290, 310);
+            this.btnCancelar.Location = new System.Drawing.Point(83, 328);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 25;
@@ -56,7 +60,7 @@
             // cmbCategoria
             // 
             this.cmbCategoria.FormattingEnabled = true;
-            this.cmbCategoria.Location = new System.Drawing.Point(384, 156);
+            this.cmbCategoria.Location = new System.Drawing.Point(177, 174);
             this.cmbCategoria.Name = "cmbCategoria";
             this.cmbCategoria.Size = new System.Drawing.Size(100, 21);
             this.cmbCategoria.TabIndex = 24;
@@ -64,28 +68,28 @@
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(384, 203);
+            this.txtPrecio.Location = new System.Drawing.Point(177, 221);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(100, 20);
             this.txtPrecio.TabIndex = 23;
             // 
             // txtExistencia
             // 
-            this.txtExistencia.Location = new System.Drawing.Point(384, 244);
+            this.txtExistencia.Location = new System.Drawing.Point(177, 262);
             this.txtExistencia.Name = "txtExistencia";
             this.txtExistencia.Size = new System.Drawing.Size(100, 20);
             this.txtExistencia.TabIndex = 22;
             // 
             // txtProveedor
             // 
-            this.txtProveedor.Location = new System.Drawing.Point(384, 114);
+            this.txtProveedor.Location = new System.Drawing.Point(177, 132);
             this.txtProveedor.Name = "txtProveedor";
             this.txtProveedor.Size = new System.Drawing.Size(100, 20);
             this.txtProveedor.TabIndex = 21;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(384, 75);
+            this.txtNombre.Location = new System.Drawing.Point(177, 93);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(100, 20);
             this.txtNombre.TabIndex = 20;
@@ -93,7 +97,7 @@
             // lblCantidadExis
             // 
             this.lblCantidadExis.AutoSize = true;
-            this.lblCantidadExis.Location = new System.Drawing.Point(238, 247);
+            this.lblCantidadExis.Location = new System.Drawing.Point(31, 265);
             this.lblCantidadExis.Name = "lblCantidadExis";
             this.lblCantidadExis.Size = new System.Drawing.Size(115, 13);
             this.lblCantidadExis.TabIndex = 19;
@@ -102,7 +106,7 @@
             // lblPrecio
             // 
             this.lblPrecio.AutoSize = true;
-            this.lblPrecio.Location = new System.Drawing.Point(238, 203);
+            this.lblPrecio.Location = new System.Drawing.Point(31, 221);
             this.lblPrecio.Name = "lblPrecio";
             this.lblPrecio.Size = new System.Drawing.Size(92, 13);
             this.lblPrecio.TabIndex = 18;
@@ -111,7 +115,7 @@
             // lblCategoria
             // 
             this.lblCategoria.AutoSize = true;
-            this.lblCategoria.Location = new System.Drawing.Point(238, 159);
+            this.lblCategoria.Location = new System.Drawing.Point(31, 177);
             this.lblCategoria.Name = "lblCategoria";
             this.lblCategoria.Size = new System.Drawing.Size(52, 13);
             this.lblCategoria.TabIndex = 17;
@@ -120,7 +124,7 @@
             // lblProveedor
             // 
             this.lblProveedor.AutoSize = true;
-            this.lblProveedor.Location = new System.Drawing.Point(238, 114);
+            this.lblProveedor.Location = new System.Drawing.Point(31, 132);
             this.lblProveedor.Name = "lblProveedor";
             this.lblProveedor.Size = new System.Drawing.Size(56, 13);
             this.lblProveedor.TabIndex = 16;
@@ -129,7 +133,7 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(238, 75);
+            this.lblNombre.Location = new System.Drawing.Point(31, 93);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(106, 13);
             this.lblNombre.TabIndex = 15;
@@ -137,7 +141,7 @@
             // 
             // btnAgregarProducto
             // 
-            this.btnAgregarProducto.Location = new System.Drawing.Point(384, 310);
+            this.btnAgregarProducto.Location = new System.Drawing.Point(177, 328);
             this.btnAgregarProducto.Name = "btnAgregarProducto";
             this.btnAgregarProducto.Size = new System.Drawing.Size(75, 23);
             this.btnAgregarProducto.TabIndex = 14;
@@ -148,17 +152,36 @@
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Location = new System.Drawing.Point(323, 37);
+            this.lblTitulo.Location = new System.Drawing.Point(116, 55);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(80, 13);
             this.lblTitulo.TabIndex = 13;
             this.lblTitulo.Text = "Editar Producto";
             this.lblTitulo.Click += new System.EventHandler(this.LblTitulo_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Highlight;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(690, 168);
+            this.panel1.TabIndex = 26;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(457, 174);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(265, 216);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // ucEditar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.cmbCategoria);
             this.Controls.Add(this.txtPrecio);
@@ -172,9 +195,11 @@
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.btnAgregarProducto);
             this.Controls.Add(this.lblTitulo);
+            this.Controls.Add(this.panel1);
             this.Name = "ucEditar";
             this.Size = new System.Drawing.Size(690, 405);
             this.Load += new System.EventHandler(this.UcEditar_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -196,5 +221,7 @@
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Button btnAgregarProducto;
         private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

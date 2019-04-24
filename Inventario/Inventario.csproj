@@ -105,14 +105,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Views\ucAgregarProducto.resx">
       <DependentUpon>ucAgregarProducto.cs</DependentUpon>
     </EmbeddedResource>
@@ -143,6 +137,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="public\img\tienda-online.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="public\img\add_database-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="public\img\add_database-512_opt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="public\img\add_database-512_opt .png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="public\img\images.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="public\img\depositphotos_224078356-stock-illustration-edit-concept-vector-linear-icon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="public\img\descarga.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
