@@ -38,7 +38,10 @@ namespace Inventario.Views
             }
 
           
-                MessageBox.Show("Credenciales Incorrectas. Vuelva pronto");
+            MessageBox.Show("Credenciales Incorrectas. Vuelva pronto");
+            this.txtCedula.Clear();
+            this.txtPassword.Clear();
+            this.chkAdministrador.Checked = false;
       
         }
 
