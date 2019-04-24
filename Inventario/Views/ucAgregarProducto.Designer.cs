@@ -176,9 +176,9 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.ErrorImage = global::Inventario.Properties.Resources.add_database_512_opt;
+            
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.InitialImage = global::Inventario.Properties.Resources.add_database_512_opt;
+          
             this.pictureBox1.Location = new System.Drawing.Point(22, 134);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(107, 112);
