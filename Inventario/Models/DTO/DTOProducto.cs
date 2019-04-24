@@ -25,53 +25,17 @@ namespace Inventario.Models.DTO
             this.cantidadExistente = cantidadExistente;
         }
 
-        public int NumSerie
-        {
-            get{
-                return this.numSerie;
-            }
-        }
+        public int NumSerie => numSerie;
 
-        public string NombreProducto
-        {
-            get
-            {
-                return this.nombreProducto;
-            }
-        }
+        public string NombreProducto => nombreProducto;
 
-        public string Proveedor
-        {
-            get
-            {
-                return this.proveedor;
-            }
-        }
+        public string Proveedor => proveedor;
 
-        public string Categoria
-        {
-            get
-            {
-                return this.categoria;
-            }
-        }
+        public string Categoria => categoria;
 
-        public int PrecioUnidad
-        {
-            get
-            {
-                return this.precioUnidad;
-            }
-        }
+        public int PrecioUnidad => precioUnidad;
 
-        public int CantidadExistente
-        {
-            get
-            {
-                return this.cantidadExistente;
-            }
-        }
-
+        public int CantidadExistente => cantidadExistente;
 
 
     }

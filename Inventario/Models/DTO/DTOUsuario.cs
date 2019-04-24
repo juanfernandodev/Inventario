@@ -29,55 +29,17 @@ namespace Inventario.Models.DTO
             this.password = password;
         }
 
-        public int IdUsuario
-        {
-            get
-            {
-                return idUsuario;
-            }
-        }
+        public int IdUsuario => idUsuario;
 
-        public string Cedula
-        {
-            get
-            {
-                return cedula;
-            }
-        }
+        public string Cedula => cedula;
 
-        public string Nombre
-        {
-            get
-            {
-                return nombre;
-            }
-        }
+        public string Nombre => nombre;
 
-        public string Apellido
-        {
-            get
-            {
-                return apellido;
-            }
-        }
+        public string Apellido => apellido;
 
-        public string Rol
-        {
-            get
-            {
-                return rol;
-            }
-        }
+        public string Rol => rol;
 
-        public string Password
-        {
-            get
-            {
-                return password;
-            }
-        }
+        public string Password => password;
     }
-
-
 
 }

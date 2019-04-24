@@ -46,7 +46,7 @@ namespace Inventario.Controllers
         /// <returns>Lista de los productos en la BD</returns>
         public List<string[]> ListarProductosTabla()
         {
-            productos = daoProducto.darProductos();   
+            productos = daoProducto.DarProductos();   
             List<string[]> listaProductos = new List<string[]>();
             foreach (DTOProducto producto in productos)
             {

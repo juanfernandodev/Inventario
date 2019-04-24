@@ -19,55 +19,58 @@ namespace Inventario.Models.DAO
 
         public DAOUsuario()
         {
-            this.database = null;
-          
-            this.reader = null;
-            this.declaracion = "";
+            database = null;
+            reader = null;
+            declaracion = "";
         }
 
-        /*Metodos implementados de la Interfaz iDAOUSuario
-
-        /* Patron de diseño SINGLETON */
+        /// <summary>
+        /// Patron de diseño Singleton, que solo crea una clase de bd si no existe otra
+        /// </summary>
+        /// <returns>Retorna un objeto abstracto de la bd</returns>
         public BdContext ConectarBD()
         {
-         if(database == null)
+            if (database == null)
             {
-               this.database =  new BdContext(); 
+                database = new BdContext();
             }
             
             return database;
         }
         
+
+        /// <summary>
+        /// Solicita al objeto BD que realice una consulta a la BD
+        /// </summary>
+        /// <param name="cedula"></param>
+        /// <param name="role"></param>
+        /// <param name="password"></param>
+        /// <returns>Retorna un DTOUsuario</returns>
         public DTOUsuario BuscarUsuario(string cedula, string role, string password)
         {
             int idUsuario = 1;
-           string nombre = "", apellido = "";
+            string nombre = "", apellido = "";
 
             try {
-                this.ConectarBD();
+                ConectarBD();
                 declaracion = "SELECT * FROM Usuario WHERE cedula = '" + cedula + "' AND rol = '" + role + "' AND password = MD5('" + password + "');";
-                this.reader = this.database.Consultar(declaracion);
+                reader = database.Consultar(declaracion);
             
-                if (this.reader.HasRows)
+                if (reader.HasRows)
                 {
-                    if (this.reader.Read())
+                    if (reader.Read())
                     {
                         idUsuario = reader.GetBoolean(0) ? 1 : 0;
                         nombre = reader.GetString(2);
                         apellido = reader.GetString(3);
-                        
-                        this.database.CerrarConexion();
+                        database.CerrarConexion();
                         return new DTOUsuario(idUsuario, cedula, nombre, apellido, role, password);
                     }
-
                 }
-                
-                
-                
             }catch (MySqlException ex){
                  MessageBox.Show(ex.ToString());
             }
-            this.database.CerrarConexion();
+            database.CerrarConexion();
             return null;
         }
 

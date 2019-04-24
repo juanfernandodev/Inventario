@@ -12,7 +12,6 @@ namespace Inventario.Controllers
 {
     class LoginController
     {
-
         private Form1 main;
         private DAOUsuario user;
         private DTOUsuario dtoUser;
@@ -50,7 +49,5 @@ namespace Inventario.Controllers
 
             return false;
         }
-
-
     }
 }
