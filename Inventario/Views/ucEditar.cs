@@ -40,7 +40,7 @@ namespace Inventario.Views
 
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
-            this.main.VolverToInventario();
+            this.main.AbrirVistaAdmin("","");
         }
 
         private void UcEditar_Load(object sender, EventArgs e)

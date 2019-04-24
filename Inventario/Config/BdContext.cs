@@ -9,6 +9,7 @@ using System.Windows.Forms;
 namespace Inventario.Models.Dao
 {
     public class BdContext {
+
         private static string server = "arquitecturabd.mysql.database.azure.com";
         private static string database = "inventario";
         private static string user = "adminbd@arquitecturabd";
@@ -16,65 +17,67 @@ namespace Inventario.Models.Dao
         private static string port = "3306";
         private MySqlConnection conexionBd; //realiza la conexion a la BD
         private MySqlCommand cmd; //Ejecuta las sentencias o declaraciones a la BD
-        private MySqlDataReader reader; //Obtiene los resultados de las declaraciones
-
+        private MySqlDataReader reader; //Obtiene los resultados de las declaraciones que obtiene el cmd
 
         public BdContext()
         {
-            conectarBD();
+            ConectarBD();
         }
 
-        private void conectarBD()
+        /// <summary>
+        /// Crea el enlace de conexion a la base de datos
+        /// </summary>
+        private void ConectarBD()
         {
-            string cadenaConexion = "server=" + server + "; port=" + port + "; userid=" + user + "; password=" + pass + "; database=" + database + ";";
-            this.conexionBd = new MySqlConnection(cadenaConexion);
-          
+            conexionBd = new MySqlConnection("server=" + server + "; port=" + port + "; userid=" + user + "; password=" + pass + "; database=" + database + ";");
         }
 
-      
-        public MySqlConnection ConexionBd
-        {
-            get
-            {
-                return this.conexionBd;
+        /// <summary>
+        /// Devuelve la variable ConexionBd
+        /// </summary>
+        public MySqlConnection ConexionBd => conexionBd;
 
-            }
-        }
-
-        /* Este metodo es para eliminacion, actualizacion, insertar, es decir para ALTERAR una tabla de la BD */
-        public Boolean alterar(string declaracion)
+        /// <summary>
+        /// Este metodo es para eliminacion, actualizacion, insertar, es decir para ALTERAR una tabla de la BD
+        /// </summary>
+        /// <param name="declaracion"></param>
+        /// <returns>Returna un boolean confirmando si se puedo realizar la declaracion en la BD</returns>
+        public bool Alterar(string declaracion)
         {
-            this.conexionBd.Open();
+            conexionBd.Open();
             try
             {
-                this.cmd = new MySqlCommand(declaracion, this.conexionBd);
-                this.cmd.ExecuteReader();
+                cmd = new MySqlCommand(declaracion, conexionBd);
+                cmd.ExecuteReader();
                 return true;
-            }catch (MySqlException ex){
+            }
+            catch (MySqlException ex)
+            {
                  MessageBox.Show(ex.ToString());
             }
             return false;
-
-
-
-            conexionBd.Close();
         }
 
-        public MySqlDataReader consultar(string declaracion)
+        /// <summary>
+        /// Realiza una consulta a la BD
+        /// </summary>
+        /// <param name="declaracion"></param>
+        /// <returns>Resultados de la consulta en un buffer</returns>
+        public MySqlDataReader Consultar(string declaracion)
         {
-            this.conexionBd.Open();
-            this.cmd = new MySqlCommand(declaracion,this.conexionBd);
-            this.reader = cmd.ExecuteReader();
+            conexionBd.Open();
+            cmd = new MySqlCommand(declaracion, conexionBd);
+            reader = cmd.ExecuteReader();
             return reader;
         }
 
+        /// <summary>
+        /// Cierra la conexion de la BD
+        /// </summary>
         public void CerrarConexion()
         {
-            this.conexionBd.Close();
+            conexionBd.Close();
         }
         
-
     }
 }
-
-

@@ -10,16 +10,13 @@ using Inventario.Views;
 
 namespace Inventario.Controllers
 {
-
-    //Login vista;
-
-    class LoginController{
+    class LoginController
+    {
 
         private Form1 main;
         private DAOUsuario user;
         private DTOUsuario dtoUser;
         
-
         public LoginController(Form1 main){
             user = new DAOUsuario();
             dtoUser = new DTOUsuario();
@@ -27,26 +24,31 @@ namespace Inventario.Controllers
             
         }
 
-        public bool login(string cedula, string rol, string pass){
+        /// <summary>
+        /// Solicita al DAOusuario buscar las credenciales del usuario que se va a logear en el sistema
+        /// </summary>
+        /// <param name="cedula"></param>
+        /// <param name="rol"></param>
+        /// <param name="pass"></param>
+        /// <returns>Confirma si el usuario tiene acceso al sistema o no</returns>
+        public bool Login(string cedula, string rol, string pass)
+        {
             dtoUser = user.BuscarUsuario(cedula, rol, pass);
 
-            if(dtoUser != null)
+            if (dtoUser != null)
             {
                 if (rol.Equals("Administrador"))
                 {
-                    this.main.AbrirVistaAdmin(dtoUser.Nombre, dtoUser.Apellido);
-
+                    main.AbrirVistaAdmin(dtoUser.Nombre, dtoUser.Apellido);
                 }
                 else
                 {
-                    this.main.AbrirVistaCajero(dtoUser.Nombre, dtoUser.Apellido);
+                    main.AbrirVistaCajero(dtoUser.Nombre, dtoUser.Apellido);
                 }
-                
                 return true;
             }
 
             return false;
-
         }
 
 

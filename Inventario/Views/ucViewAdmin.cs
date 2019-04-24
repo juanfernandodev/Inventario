@@ -50,6 +50,7 @@ namespace Inventario.Views
         }
 
         private void UcViewAdmin_Load(object sender, EventArgs e){
+            Console.WriteLine("hola mundo");
             List<string [] > productos =  main.listarProductos(); // Carga los productos al DataGridView una lista de objetos
             foreach (string[] p in productos)
             {
@@ -125,6 +126,11 @@ namespace Inventario.Views
             {
                 MessageBox.Show("Seleccione un producto para Eliminar!");
             }
+        }
+
+        private void Salir_Click(object sender, EventArgs e)
+        {
+            this.main.AbrirVistaLogin();
         }
     }
     }

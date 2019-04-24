@@ -44,8 +44,8 @@ namespace Inventario.Views
                     if (this.txtCedula.Text != "" && this.txtNombreCliente.Text != "" && txtApellidos.Text != ""){
                         this.infoproducto[5] = (int.Parse(this.infoproducto[5]) - int.Parse(txtCantidad.Text)).ToString();
                         if (this.main.EditarProducto(this.infoproducto)){
-                            cadena = "¡Producto vendido y actualizado con exito!";
-                            this.limpiarCampos();
+                            cadena = "¡Producto vendido con exito!";
+                           
                             this.main.AbrirVistaCajero("", "");
                         }
                     }else{
@@ -80,7 +80,14 @@ namespace Inventario.Views
 
         private void TxtCantidad_TextChanged(object sender, EventArgs e)
         {
-            this.txtTotalPagar.Text = (int.Parse(this.infoproducto[4]) * int.Parse(this.txtCantidad.Text)).ToString();
+            try
+            {
+                this.txtTotalPagar.Text = (int.Parse(this.infoproducto[4]) * int.Parse(this.txtCantidad.Text)).ToString();
+            }catch(Exception ex)
+            {
+                this.txtTotalPagar.Text = "0";
+            }
+            
         }
     }
 }

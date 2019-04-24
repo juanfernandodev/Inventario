@@ -48,14 +48,13 @@ namespace Inventario.Models.DAO
             this.productos = new List<DTOProducto>();
             this.ConectarBD();
             declaracion = "Select * FROM producto";
-            this.reader = this.database.consultar(declaracion);
-
+            this.reader = this.database.Consultar(declaracion);
+            this.productos = new List<DTOProducto>();
             while (this.reader.Read())
             {
                 productos.Add(new DTOProducto(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetInt32(4), reader.GetInt32(5)));
             }
             this.database.CerrarConexion();
-            //Console.WriteLine("Dao " + productos[1]);
             return productos;
         }
 
@@ -99,7 +98,7 @@ namespace Inventario.Models.DAO
                 declaracion = "INSERT INTO Producto(nombreproducto, proveedor, categoria, preciounidad, cantidadexistente) VALUES" +
                     "('" + nombreProducto + "','" + proveedor + "','" + categoria + "'," + precioUnidad + "," + cantidadExistente + ");";
                 Console.WriteLine(declaracion);
-                this.database.alterar(declaracion); //Inserta el producto en la BD
+                this.database.Alterar(declaracion); //Inserta el producto en la BD
                 this.database.CerrarConexion();
 
                 if (this.productos == null)
@@ -115,7 +114,7 @@ namespace Inventario.Models.DAO
                 MessageBox.Show(ex.ToString());
 
             }
-
+            this.database.CerrarConexion();
             return false;
         }
 
@@ -124,7 +123,7 @@ namespace Inventario.Models.DAO
         {
             this.ConectarBD();
             declaracion = "DELETE FROM Producto WHERE num_serie = " + numserie;
-            if (this.database.alterar(declaracion))
+            if (this.database.Alterar(declaracion))
             {
                 //Elimina de la BD
                 this.database.CerrarConexion();
@@ -132,6 +131,7 @@ namespace Inventario.Models.DAO
                 return true;
             }
 
+            this.database.CerrarConexion();
             return false;
         }
 
@@ -142,13 +142,14 @@ namespace Inventario.Models.DAO
             
             declaracion = "UPDATE Producto SET nombreproducto='" + nombreproducto + "', proveedor='" + proveedor + "', categoria='" + categoria + "', " +
                 "preciounidad=" + preciounidad + ", cantidadexistente=" + cantidadexistente + " WHERE num_serie = "+numeroserie+";";
-            if (this.database.alterar(declaracion))
+            if (this.database.Alterar(declaracion))
             {
                 this.database.CerrarConexion(); 
                 this.actualizarProductosLocalmente(); //Actualiza localmente
                 return true;
 
             }
+            this.database.CerrarConexion();
             return false;
         }
     }

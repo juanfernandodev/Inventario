@@ -46,7 +46,7 @@ namespace Inventario.Models.DAO
             try {
                 this.ConectarBD();
                 declaracion = "SELECT * FROM Usuario WHERE cedula = '" + cedula + "' AND rol = '" + role + "' AND password = MD5('" + password + "');";
-                this.reader = this.database.consultar(declaracion);
+                this.reader = this.database.Consultar(declaracion);
             
                 if (this.reader.HasRows)
                 {
@@ -67,7 +67,7 @@ namespace Inventario.Models.DAO
             }catch (MySqlException ex){
                  MessageBox.Show(ex.ToString());
             }
-            
+            this.database.CerrarConexion();
             return null;
         }
 

@@ -42,27 +42,27 @@ namespace Inventario
 
         public bool logear(string cedula, string rol, string pass)
         {
-            return this.controller.login(cedula, rol, pass);
+            return this.controller.Login(cedula, rol, pass);
 
         }
 
         internal Boolean AgregarProducto(string nombre, string proveedor, string categoria, int precio, int cantidad)
         {
-            return this.adminController.agregarProducto(nombre,proveedor,categoria,precio,cantidad);
+            return this.adminController.AgregarProducto(nombre,proveedor,categoria,precio,cantidad);
 
         }
         internal string[] BuscarProductoNumSerie(int v){
-            return this.adminController.buscar(v);
+            return this.adminController.Buscar(v);
         }
 
         internal void VolverToInventario()
         {
-            this.Controls.Clear();
-            this.Controls.Add(this.ucViewAdmin);
+            this.AbrirVistaAdmin("","");
+
         }
 
         internal Boolean EditarProducto(string [] infoProdAct){
-             return this.adminController.actualizar(infoProdAct);
+             return this.adminController.Actualizar(infoProdAct);
         }
 
         public void AbrirVistaAdmin(string nombre, string apellido)
@@ -145,6 +145,13 @@ namespace Inventario
         private void TextBox2_TextChanged(object sender, EventArgs e)
         {
           
+        }
+
+        internal void AbrirVistaLogin()
+        {
+            this.Controls.Clear();
+            this.ucLogin = new ucLogin(this);
+            this.Controls.Add(this.ucLogin);
         }
 
         private void Panel1_Paint(object sender, PaintEventArgs e)
