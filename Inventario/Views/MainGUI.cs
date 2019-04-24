@@ -17,12 +17,10 @@ namespace Inventario
         private Controllers.LoginController controller;
         private ucLogin ucLogin;
         private ucViewAdmin ucViewAdmin;
-        private List<string []> productos;
         private AdminController adminController;
         private ucAgregarProducto ucAgregarProducto;
         private ucEditar ucEditarProducto;
         private ucVender ucVender;
-        private string[] infoProducto;
 
         public Form1()
         {
