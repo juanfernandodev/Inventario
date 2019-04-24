@@ -44,11 +44,13 @@ namespace Inventario.Views
             }
             else
             {
-                MessageBox.Show("Debe ingresar minimo la Cedula y su Password.");
+                MessageBox.Show("Debe ingresar minimo la Cedula y su Password.", "Advertencia...",MessageBoxButtons.OK,MessageBoxIcon.Error);
+               
                 return;
             }
-   
-            MessageBox.Show("Credenciales Incorrectas. Vuelva pronto");
+                MessageBox.Show("Credenciales Incorrectas. Vuelva pronto", "Advertencia...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            
             this.txtCedula.Clear();
             this.txtPassword.Clear();
             this.chkAdministrador.Checked = false;
